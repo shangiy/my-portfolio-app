@@ -105,6 +105,71 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section id="about" className="w-full py-24 md:py-32 bg-background">
+          <div className="container px-4 md:px-6">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
+              <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                Get to know more about my background and experience
+              </p>
+            </div>
+            <div className="mt-12 p-8 rounded-lg bg-card grid gap-12 lg:grid-cols-2 lg:gap-16">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">Who I Am</h3>
+                <p className="text-muted-foreground">
+                  I'm a passionate web developer and UI/UX designer with over 5 years of experience creating digital experiences that users love. I specialize in frontend development and have worked with various companies and startups.
+                </p>
+                <p className="text-muted-foreground">
+                  When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new design tools. I believe in continuous learning and staying updated with the latest industry trends.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="font-semibold">Name:</p>
+                    <p className="text-muted-foreground">Imam Hossain</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Email:</p>
+                    <p className="text-muted-foreground">imam@example.com</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Location:</p>
+                    <p className="text-muted-foreground">Dhaka, Bangladesh</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Availability:</p>
+                    <p className="text-muted-foreground">Freelance / Full-time</p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold">My Experience</h3>
+                <div className="space-y-6">
+                  <div className="flex justify-between items-start p-4 rounded-lg bg-background">
+                    <div>
+                      <h4 className="font-bold">Senior Web Developer</h4>
+                      <p className="text-sm text-primary">Tech Solutions Inc.</p>
+                    </div>
+                    <Badge variant="secondary">2020 - Present</Badge>
+                  </div>
+                  <div className="flex justify-between items-start p-4 rounded-lg bg-background">
+                    <div>
+                      <h4 className="font-bold">UI/UX Designer</h4>
+                      <p className="text-sm text-primary">Creative Studio</p>
+                    </div>
+                    <Badge variant="secondary">2018 - 2020</Badge>
+                  </div>
+                  <div className="flex justify-between items-start p-4 rounded-lg bg-background">
+                    <div>
+                      <h4 className="font-bold">Frontend Developer</h4>
+                      <p className="text-sm text-primary">Web Agency</p>
+                    </div>
+                    <Badge variant="secondary">2016 - 2018</Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
