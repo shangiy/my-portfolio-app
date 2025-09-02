@@ -5,8 +5,10 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Facebook, Linkedin, Twitter, MessageCircle, Code, GitMerge, Database, Settings, Briefcase, Star } from 'lucide-react';
+import { Facebook, Linkedin, Twitter, MessageCircle, Code, GitMerge, Database, Settings, Briefcase, Star, MapPin, Mail, Phone, Instagram } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function Home() {
   return (
@@ -288,15 +290,15 @@ export default function Home() {
                     <Star className="w-5 h-5" />
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
-                    <div className="lg:col-start-2">
-                       <div className="p-6 rounded-lg bg-card">
+                    <div className="lg:text-right">
+                       <div className="p-6 rounded-lg bg-card lg:text-right">
                         <h3 className="text-2xl font-bold">Fullstack Engineer</h3>
                         <p className="text-primary font-semibold">Agumentik Group of Companies</p>
                         <p className="text-sm text-muted-foreground mb-4">July 2023 - March 2024</p>
                         <p className="text-muted-foreground">
                           Contributed to innovative projects as a Fullstack Engineer, leading both frontend and backend development using modern technologies.
                         </p>
-                        <div className="mt-4 flex flex-wrap gap-2">
+                        <div className="mt-4 flex flex-wrap gap-2 justify-end">
                           <Badge>React JS</Badge>
                           <Badge>Node.js</Badge>
                           <Badge>Express</Badge>
@@ -433,6 +435,75 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </section>
+        <section id="contact" className="w-full py-24 md:py-32 bg-background">
+          <div className="container px-4 md:px-6">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get In Touch</h2>
+              <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                Have a project in mind? Let's discuss how we can work together
+              </p>
+            </div>
+            <div className="mt-12 p-8 rounded-lg bg-card grid gap-12 lg:grid-cols-2 lg:gap-16">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <MapPin className="h-6 w-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-semibold">Location</h4>
+                      <p className="text-muted-foreground">Nairobi, Kenya</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Mail className="h-6 w-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-semibold">Email</h4>
+                      <p className="text-muted-foreground">imam@example.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Phone className="h-6 w-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-semibold">Phone</h4>
+                      <p className="text-muted-foreground">+254 712 345678</p>
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold pt-4">Follow Me</h3>
+                <div className="flex items-center gap-4">
+                  <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
+                  <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
+                  <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
+                  <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">Send Me a Message</h3>
+                <form className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium leading-none">Your Name</label>
+                      <Input id="name" placeholder="Enter your name" />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-medium leading-none">Your Email</label>
+                      <Input id="email" type="email" placeholder="Enter your email" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-sm font-medium leading-none">Subject</label>
+                    <Input id="subject" placeholder="Enter the subject" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium leading-none">Message</label>
+                    <Textarea id="message" placeholder="Enter your message" className="min-h-[150px]" />
+                  </div>
+                  <Button type="submit" size="lg">Send Message</Button>
+                </form>
+              </div>
             </div>
           </div>
         </section>
