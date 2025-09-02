@@ -20,7 +20,7 @@ export default function Home() {
             className="flex items-center space-x-2"
             aria-label="Home"
           >
-            <span className="font-bold text-xl">Coder</span>
+            <span className="font-headline text-2xl font-bold text-transparent bg-clip-text text-stroke">Coder</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium mx-auto">
             <Link
