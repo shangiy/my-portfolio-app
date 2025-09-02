@@ -17,7 +17,7 @@ export default function Home() {
         <div className="container flex h-16 items-center">
           <Link
             href="/"
-            className="mr-6 flex items-center space-x-2"
+            className="flex items-center space-x-2"
             aria-label="Home"
           >
             <span className="font-bold text-xl">Coder</span>
@@ -66,7 +66,7 @@ export default function Home() {
               CONTACT
             </Link>
           </nav>
-          <div className="flex flex-1 items-center justify-end">
+          <div className="flex items-center justify-end">
             <Button>Hire Me</Button>
           </div>
         </div>
