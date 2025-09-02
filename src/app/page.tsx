@@ -125,7 +125,7 @@ export default function Home() {
                   <span className="animate-ping text-primary">|</span>
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  I create beautiful, functional websites and applications with modern technologies. Let's work together to bring your ideas to life.
+                  design and build stunning, user-friendly websites and applications using modern technologies. Together, we can transform your ideas into reality.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -553,5 +553,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
