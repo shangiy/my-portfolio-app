@@ -146,8 +146,8 @@ export default function Home() {
             </div>
             <div className="relative">
               <Image
-                src="/image.png"
-                alt="Sushil KC"
+                src="/homeUI.png"
+                alt="Mushangi P"
                 width={600}
                 height={800}
                 className="rounded-xl object-cover"
