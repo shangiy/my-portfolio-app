@@ -18,7 +18,7 @@ export default function Home() {
   const [activeLink, setActiveLink] = useState('home');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
 
-  const words = ["Software Engineer", "Website Designer", "System Developer", "Web Developer"];
+  const words = ["Website Designer", "System Developer", "Web Developer", "Software Engineer"];
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -120,9 +120,9 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-6">
               <div className="space-y-4">
                 <p className="text-primary font-semibold">i'm Mushangi P</p>
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl min-h-[72px] sm:min-h-[80px] md:min-h-[96px]">
+                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl min-h-[72px] sm:min-h-[80px] md:min-h-[96px] text-transparent bg-clip-text text-stroke">
                   {text}
-                  <span className="animate-ping">|</span>
+                  <span className="animate-ping text-primary">|</span>
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   I create beautiful, functional websites and applications with modern technologies. Let's work together to bring your ideas to life.
@@ -553,3 +553,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
