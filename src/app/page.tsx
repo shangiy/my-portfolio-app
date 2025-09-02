@@ -18,6 +18,33 @@ export default function Home() {
   const [activeLink, setActiveLink] = useState('home');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
 
+  const words = ["Software Engineer", "Website Designer", "System Developer", "Web Developer"];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const type = () => {
+      const currentWord = words[wordIndex];
+      const updatedText = isDeleting
+        ? currentWord.substring(0, text.length - 1)
+        : currentWord.substring(0, text.length + 1);
+
+      setText(updatedText);
+
+      if (!isDeleting && updatedText === currentWord) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && updatedText === '') {
+        setIsDeleting(false);
+        setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+      }
+    };
+
+    const typingTimeout = setTimeout(type, isDeleting ? 100 : 200);
+    return () => clearTimeout(typingTimeout);
+  }, [text, isDeleting, wordIndex, words]);
+
+
   useEffect(() => {
     const sectionElements = document.querySelectorAll('section[id]');
     sectionElements.forEach(section => {
@@ -93,8 +120,9 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-6">
               <div className="space-y-4">
                 <p className="text-primary font-semibold">i'm Mushangi P</p>
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                  Software Engineer
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl min-h-[72px] sm:min-h-[80px] md:min-h-[96px]">
+                  {text}
+                  <span className="animate-ping">|</span>
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   I create beautiful, functional websites and applications with modern technologies. Let's work together to bring your ideas to life.
