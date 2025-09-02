@@ -8,10 +8,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Facebook, Linkedin, Twitter, MessageCircle, Code, GitMerge, Database, Settings, Briefcase, Star, MapPin, Mail, Phone, Instagram } from 'lucide-react';
+import { Facebook, Linkedin, Twitter, MessageCircle, GitMerge, Database, Settings, Briefcase, Star, MapPin, Mail, Phone, Instagram } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { ScrollToTopButton } from '@/components/ui/scrollToTopButton';
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState('home');
@@ -520,6 +521,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <ScrollToTopButton />
     </div>
   );
 }
