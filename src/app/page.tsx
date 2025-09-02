@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Facebook, Linkedin, Twitter, MessageCircle } from 'lucide-react';
+import { Facebook, Linkedin, Twitter, MessageCircle, Code, GitMerge, Database, Settings } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -165,6 +165,71 @@ export default function Home() {
                     </div>
                     <Badge variant="secondary">2016 - 2018</Badge>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="skills" className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Skills</h2>
+              <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                The tools and technologies I use to bring ideas to life
+              </p>
+            </div>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2">
+              <div className="p-6 rounded-lg bg-card space-y-4">
+                <h3 className="text-xl font-bold text-primary">Frontend</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge>HTML</Badge>
+                  <Badge>CSS</Badge>
+                  <Badge>SASS</Badge>
+                  <Badge>JavaScript</Badge>
+                  <Badge>React JS</Badge>
+                  <Badge>Angular</Badge>
+                  <Badge>Redux</Badge>
+                  <Badge>Next.js</Badge>
+                  <Badge>Tailwind CSS</Badge>
+                  <Badge>GSAP</Badge>
+                  <Badge>Material UI</Badge>
+                  <Badge>Bootstrap</Badge>
+                </div>
+              </div>
+              <div className="p-6 rounded-lg bg-card space-y-4">
+                <h3 className="text-xl font-bold text-primary">Backend</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge>Spring Boot</Badge>
+                  <Badge>Node.js</Badge>
+                  <Badge>Express.js</Badge>
+                  <Badge>MySQL</Badge>
+                  <Badge>MongoDB</Badge>
+                  <Badge>Firebase</Badge>
+                  <Badge>PostgreSQL</Badge>
+                </div>
+              </div>
+              <div className="p-6 rounded-lg bg-card space-y-4">
+                <h3 className="text-xl font-bold text-primary">Languages</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge>C</Badge>
+                  <Badge>C++</Badge>
+                  <Badge>Java</Badge>
+                  <Badge>Python</Badge>
+                  <Badge>C#</Badge>
+                  <Badge>JavaScript</Badge>
+                  <Badge>TypeScript</Badge>
+                </div>
+              </div>
+              <div className="p-6 rounded-lg bg-card space-y-4">
+                <h3 className="text-xl font-bold text-primary">Tools</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge>Git</Badge>
+                  <Badge>GitHub</Badge>
+                  <Badge>VS Code</Badge>
+                  <Badge>Postman</Badge>
+                  <Badge>Vercel</Badge>
+                  <Badge>Netlify</Badge>
+                  <Badge>Figma</Badge>
                 </div>
               </div>
             </div>
