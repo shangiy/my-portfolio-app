@@ -287,7 +287,7 @@ export default function Home() {
                     <Star className="w-5 h-5" />
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
-                    <div className="lg:col-start-1 lg:text-right">
+                    <div className="lg:col-start-2">
                        <div className="p-6 rounded-lg bg-card">
                         <h3 className="text-2xl font-bold">Fullstack Engineer</h3>
                         <p className="text-primary font-semibold">Agumentik Group of Companies</p>
@@ -295,6 +295,12 @@ export default function Home() {
                         <p className="text-muted-foreground">
                           Contributed to innovative projects as a Fullstack Engineer, leading both frontend and backend development using modern technologies.
                         </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          <Badge>React JS</Badge>
+                          <Badge>Node.js</Badge>
+                          <Badge>Express</Badge>
+                          <Badge>MongoDB</Badge>
+                        </div>
                       </div>
                     </div>
                   </div>
