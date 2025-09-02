@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import { Facebook, Linkedin, Twitter, MessageCircle, Code, GitMerge, Database, Settings, Briefcase, Star } from 'lucide-react';
 
 export default function Home() {
@@ -36,6 +37,12 @@ export default function Home() {
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
               SKILLS
+            </Link>
+            <Link
+              href="#experience"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              EXPERIENCE
             </Link>
             <Link
               href="#portfolio"
@@ -235,7 +242,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="portfolio" className="w-full py-24 md:py-32">
+        <section id="experience" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Experience</h2>
@@ -293,6 +300,69 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        <section id="portfolio" className="w-full py-24 md:py-32 bg-background">
+          <div className="container px-4 md:px-6">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Portfolio</h2>
+              <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                A collection of my recent work and projects
+              </p>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardContent className="p-0">
+                  <Image
+                    src="https://picsum.photos/600/400"
+                    alt="E-commerce Website"
+                    width={600}
+                    height={400}
+                    className="rounded-t-lg object-cover"
+                    data-ai-hint="finance app"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold">E-commerce Website</h3>
+                    <p className="text-muted-foreground">Web Design</p>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-0">
+                  <Image
+                    src="https://picsum.photos/600/400"
+                    alt="Fitness App UI"
+                    width={600}
+                    height={400}
+                    className="rounded-t-lg object-cover"
+                    data-ai-hint="social media logos"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold">Fitness App UI</h3>
+                    <p className="text-muted-foreground">UI/UX Design</p>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-0">
+                  <Image
+                    src="https://picsum.photos/600/400"
+                    alt="Analytics Dashboard"
+                    width={600}
+                    height={400}
+                    className="rounded-t-lg object-cover"
+                    data-ai-hint="analytics chart"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold">Analytics Dashboard</h3>
+                    <p className="text-muted-foreground">Web Development</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="mt-12 text-center">
+              <Button variant="outline">View More Projects</Button>
             </div>
           </div>
         </section>
