@@ -14,7 +14,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ScrollToTopButton } from '@/components/ui/scrollToTopButton';
 
-export default function Home({}: {}) {
+export default function Home({
+  params,
+  searchParams,
+}: {
+  params?: object;
+  searchParams?: object;
+}) {
   const [activeLink, setActiveLink] = useState('home');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
 
