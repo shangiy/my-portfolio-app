@@ -119,7 +119,7 @@ export default function Home() {
           <div className="container grid gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-24">
             <div className="flex flex-col justify-center space-y-6">
               <div className="space-y-4">
-                <p className="text-primary font-semibold">i'm Mushangi P</p>
+                <p className="text-primary font-semibold">I'm Mushangi P</p>
                 <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl min-h-[72px] sm:min-h-[80px] md:min-h-[96px] text-transparent bg-clip-text text-stroke">
                   {text}
                   <span className="animate-ping text-primary">|</span>
