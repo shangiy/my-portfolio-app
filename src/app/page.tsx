@@ -148,11 +148,11 @@ export default function Home({params, searchParams}: {params: any, searchParams:
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="font-semibold">Name:</p>
-                    <p className="text-muted-foreground">Imam Hossain</p>
+                    <p className="text-muted-foreground">Mushangi P</p>
                   </div>
                   <div>
                     <p className="font-semibold">Email:</p>
-                    <p className="text-muted-foreground">imam@example.com</p>
+                    <p className="text-muted-foreground">mushangip0@gmail.com</p>
                   </div>
                   <div>
                     <p className="font-semibold">Location:</p>
@@ -474,7 +474,7 @@ export default function Home({params, searchParams}: {params: any, searchParams:
                     <Mail className="h-6 w-6 text-primary mt-1" />
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-muted-foreground">imam@example.com</p>
+                      <p className="text-muted-foreground">mushangip0@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
