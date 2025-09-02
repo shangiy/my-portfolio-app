@@ -1,6 +1,9 @@
 
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,6 +14,43 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
 export default function Home() {
+  const [activeLink, setActiveLink] = useState('home');
+  const sections = useRef<{[key: string]: HTMLElement | null}>({});
+
+  useEffect(() => {
+    const sectionElements = document.querySelectorAll('section[id]');
+    sectionElements.forEach(section => {
+      sections.current[section.id] = section as HTMLElement;
+    });
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+
+      for (const sectionId in sections.current) {
+        const section = sections.current[sectionId];
+        if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+          setActiveLink(sectionId);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const navLinks = [
+    { href: '#home', label: 'HOME' },
+    { href: '#about', label: 'ABOUT' },
+    { href: '#skills', label: 'SKILLS' },
+    { href: '#experience', label: 'EXPERIENCE' },
+    { href: '#portfolio', label: 'PORTFOLIO' },
+    { href: '#testimonials', label: 'TESTIMONIALS' },
+    { href: '#contact', label: 'CONTACT' },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
@@ -23,48 +63,20 @@ export default function Home() {
             <span className="font-headline text-2xl font-bold text-transparent bg-clip-text text-stroke">Coder</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium mx-auto">
-            <Link
-              href="#home"
-              className="transition-colors text-primary hover:text-primary/80"
-            >
-              HOME
-            </Link>
-            <Link
-              href="#about"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              ABOUT
-            </Link>
-            <Link
-              href="#skills"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              SKILLS
-            </Link>
-            <Link
-              href="#experience"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              EXPERIENCE
-            </Link>
-            <Link
-              href="#portfolio"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              PORTFOLIO
-            </Link>
-            <Link
-              href="#testimonials"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              TESTIMONIALS
-            </Link>
-            <Link
-              href="#contact"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              CONTACT
-            </Link>
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setActiveLink(href.substring(1))}
+                className={`transition-colors hover:text-primary/80 ${
+                  activeLink === href.substring(1)
+                    ? 'text-primary'
+                    : 'text-foreground/60'
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
           <div className="flex items-center justify-end">
             <Button>Hire Me</Button>
