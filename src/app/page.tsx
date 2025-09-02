@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Facebook, Linkedin, Twitter, MessageCircle, Code, GitMerge, Database, Settings, Briefcase, Star } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 export default function Home() {
   return (
@@ -369,6 +370,69 @@ export default function Home() {
             </div>
             <div className="mt-12 text-center">
               <Button variant="outline">View More Projects</Button>
+            </div>
+          </div>
+        </section>
+        <section id="testimonials" className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Client Testimonials</h2>
+              <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                What people I've worked with say about me
+              </p>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-4">
+                    <Avatar>
+                      <AvatarImage src="https://picsum.photos/48/48" alt="Sarah Johnson" data-ai-hint="woman portrait" />
+                      <AvatarFallback>SJ</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-bold">Sarah Johnson</p>
+                      <p className="text-sm text-primary">CEO, TechStart</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground">
+                    "Imam delivered exceptional work on our website redesign. His attention to detail and communication throughout the project was impressive."
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-4">
+                    <Avatar>
+                      <AvatarImage src="https://picsum.photos/48/48" alt="Michael Chen" data-ai-hint="man portrait" />
+                      <AvatarFallback>MC</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-bold">Michael Chen</p>
+                      <p className="text-sm text-primary">Product Manager, InnovateCo</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground">
+                    "Working with Imam was a great experience. He transformed our complex requirements into a beautiful, user-friendly interface."
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-4">
+                    <Avatar>
+                      <AvatarImage src="https://picsum.photos/48/48" alt="David Wilson" data-ai-hint="man face" />
+                      <AvatarFallback>DW</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-bold">David Wilson</p>
+                      <p className="text-sm text-primary">Founder, StartupHub</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground">
+                    "Imam's technical skills and creative design solutions helped us create an engaging platform that our users love. Highly recommended!"
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
