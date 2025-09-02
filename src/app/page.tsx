@@ -2,170 +2,110 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Facebook, Linkedin, Twitter, MessageCircle } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm">
-        <div className="container flex h-14 items-center">
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
+      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
+        <div className="container flex h-16 items-center">
           <Link
             href="/"
             className="mr-6 flex items-center space-x-2"
             aria-label="Home"
           >
-            <Logo />
+            <span className="font-bold text-xl">Coder</span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium mx-auto">
             <Link
-              href="#features"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              href="#home"
+              className="transition-colors text-primary hover:text-primary/80"
             >
-              Features
+              HOME
             </Link>
             <Link
-              href="#pricing"
+              href="#about"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Pricing
+              ABOUT
+            </Link>
+            <Link
+              href="#skills"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              SKILLS
+            </Link>
+            <Link
+              href="#portfolio"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              PORTFOLIO
+            </Link>
+            <Link
+              href="#testimonials"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              TESTIMONIALS
             </Link>
             <Link
               href="#contact"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Contact
+              CONTACT
             </Link>
           </nav>
-          <div className="flex flex-1 items-center justify-end space-x-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button>Sign Up</Button>
+          <div className="flex flex-1 items-center justify-end">
+            <Button>Hire Me</Button>
           </div>
         </div>
       </header>
       <main className="flex-1">
         <section
-          id="hero"
-          className="relative w-full h-[80vh] min-h-[500px] flex items-center justify-center text-center"
+          id="home"
+          className="w-full py-24 md:py-32 lg:py-40"
         >
-          <Image
-            src="https://picsum.photos/1920/1080"
-            alt="Hero background"
-            fill
-            className="object-cover absolute inset-0 -z-10 brightness-50"
-            data-ai-hint="office background"
-          />
-          <div className="container px-4 md:px-6 text-white">
-            <div className="max-w-3xl mx-auto space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                Build Your Next Big Idea
-              </h1>
-              <p className="text-lg md:text-xl text-foreground/80">
-                Create amazing applications with our powerful tools and
-                services.
-              </p>
-              <div className="flex justify-center gap-4">
-                <Button size="lg">Get Started</Button>
-                <Button size="lg" variant="secondary">
-                  Learn More
-                </Button>
+          <div className="container grid gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-24">
+            <div className="flex flex-col justify-center space-y-6">
+              <div className="space-y-4">
+                <p className="text-primary font-semibold">I'm Sushil KC</p>
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+                  Software Engineer
+                </h1>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  I create beautiful, functional websites and applications with modern technologies. Let's work together to bring your ideas to life.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">Web Design</Badge>
+                  <Badge variant="secondary">Frontend Development</Badge>
+                  <Badge variant="secondary">UI/UX Design</Badge>
+              </div>
+              <div className="flex items-center gap-4">
+                <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary"><MessageCircle /></Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg">View My Work</Button>
+                <Button size="lg" variant="outline">Download CV</Button>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id="features" className="py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Features
-              </h2>
-              <p className="max-w-2xl mx-auto text-muted-foreground md:text-xl">
-                Everything you need to build and scale your application.
-              </p>
+            <div className="relative">
+              <Image
+                src="https://picsum.photos/id/64/600/800"
+                alt="Sushil KC"
+                width={600}
+                height={800}
+                className="rounded-xl object-cover"
+                data-ai-hint="man portrait"
+              />
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Feature One</CardTitle>
-                  <CardDescription>
-                    Description of the first amazing feature.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>More details about the feature.</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Feature Two</CardTitle>
-                  <CardDescription>
-                    Description of the second amazing feature.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>More details about the feature.</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Feature Three</CardTitle>
-                  <CardDescription>
-                    Description of the third amazing feature.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>More details about the feature.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <section id="cta" className="py-12 md:py-24 bg-secondary">
-          <div className="container text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
-              Ready to Dive In?
-            </h2>
-            <p className="max-w-xl mx-auto text-muted-foreground mb-8">
-              Start your free trial today. No credit card required.
-            </p>
-            <Button size="lg">Start Building</Button>
           </div>
         </section>
       </main>
-      <footer className="border-t">
-        <div className="container py-8 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Logo />
-            <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} MyApp. All rights reserved.
-            </p>
-          </div>
-          <div className="flex items-center gap-4 text-sm font-medium">
-            <Link
-              href="/privacy"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Terms
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
-
