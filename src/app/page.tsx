@@ -105,7 +105,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <Image
-                src="https://picsum.photos/id/64/600/800"
+                src="/hero-image.jpeg"
                 alt="Sushil KC"
                 width={600}
                 height={800}
