@@ -105,7 +105,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <Image
-                src="/hero-image.jpeg"
+                src="/image.png"
                 alt="Sushil KC"
                 width={600}
                 height={800}
