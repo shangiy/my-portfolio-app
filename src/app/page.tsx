@@ -133,7 +133,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold">Location:</p>
-                    <p className="text-muted-foreground">Dhaka, Bangladesh</p>
+                    <p className="text-muted-foreground">Nairobi, Kenya</p>
                   </div>
                   <div>
                     <p className="font-semibold">Availability:</p>
