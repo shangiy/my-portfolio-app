@@ -154,7 +154,7 @@ export default function HomePage() {
               <div className="flex items-center gap-4">
                 <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
                 <Link href="#" className="text-muted-foreground hover:text-primary"><MessageCircle /></Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
+                <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
                 <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -535,7 +535,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-4">
                   <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
                   <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
-                  <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
+                  <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
                   <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
                 </div>
               </div>
