@@ -164,7 +164,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="/image.png"
+                src="/HomeUI.png"
                 alt="Mushangi P"
                 width={600}
                 height={800}
