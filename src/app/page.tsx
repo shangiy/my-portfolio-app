@@ -53,17 +53,22 @@ export default function Home() {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
+      let currentSection = '';
 
       for (const sectionId in sections.current) {
         const section = sections.current[sectionId];
         if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-          setActiveLink(sectionId);
+          currentSection = sectionId;
           break;
         }
+      }
+      if (currentSection) {
+        setActiveLink(currentSection);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -95,7 +100,13 @@ export default function Home() {
               <Link
                 key={href}
                 href={href}
-                onClick={() => setActiveLink(href.substring(1))}
+                onClick={() => {
+                  setActiveLink(href.substring(1));
+                  const section = document.querySelector(href);
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className={`transition-colors hover:text-primary/80 ${
                   activeLink === href.substring(1)
                     ? 'text-primary'
