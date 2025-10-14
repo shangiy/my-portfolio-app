@@ -380,22 +380,24 @@ export default function HomePage() {
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <Card>
-                <CardContent className="p-0">
-                  <Image
-                    src="https://picsum.photos/600/400"
-                    alt="E-commerce Website"
-                    width={600}
-                    height={400}
-                    className="rounded-t-lg object-cover"
-                    data-ai-hint="finance app"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold">E-commerce Website</h3>
-                    <p className="text-muted-foreground">Web Design</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <Link href="/portfolio/ecommerce-project">
+                <Card className="hover:shadow-lg transition-shadow">
+                  <CardContent className="p-0">
+                    <Image
+                      src="https://picsum.photos/600/400"
+                      alt="E-commerce Website"
+                      width={600}
+                      height={400}
+                      className="rounded-t-lg object-cover"
+                      data-ai-hint="finance app"
+                    />
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold">E-commerce Website</h3>
+                      <p className="text-muted-foreground">Web Design</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
               <Card>
                 <CardContent className="p-0">
                   <Image
