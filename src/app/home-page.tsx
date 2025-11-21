@@ -121,7 +121,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li><Link href="#home" className="text-muted-foreground hover:text-primary">Home</Link></li>
                 <li><Link href="#about" className="text-muted-foreground hover:text-primary">About</Link></li>
-                <li><Link href="#portfolio" className="text-muted-foreground hover:text-primary">Portfolio</Link></li>
+                <li><Link href="/portfolio" className="text-muted-foreground hover:text-primary">Portfolio</Link></li>
                 <li><Link href="#contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
               </ul>
             </div>
@@ -223,7 +223,7 @@ const HeroSection = () => {
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row">
                         <Button asChild size="lg">
-                            <Link href="#portfolio">View My Work</Link>
+                            <Link href="/portfolio">View My Work</Link>
                         </Button>
                         <Button asChild variant="outline" size="lg">
                             <Link href="/cv.pdf" target="_blank">Download CV</Link>
@@ -250,39 +250,41 @@ export default function HomePage() {
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
 
   useEffect(() => {
-    const sectionElements = document.querySelectorAll('section[id]');
-    sectionElements.forEach(section => {
-      sections.current[section.id] = section as HTMLElement;
-    });
-
     const handleScroll = () => {
+      const sectionElements = document.querySelectorAll('section[id]');
       const scrollPosition = window.scrollY + 100;
-      let currentSection = '';
+      let currentSectionId = '';
 
-      for (const sectionId in sections.current) {
-        const section = sections.current[sectionId];
-        if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-          currentSection = sectionId;
-          break;
+      sectionElements.forEach(section => {
+        const htmlSection = section as HTMLElement;
+        if (scrollPosition >= htmlSection.offsetTop && scrollPosition < htmlSection.offsetTop + htmlSection.offsetHeight) {
+          currentSectionId = htmlSection.id;
+        }
+      });
+      
+      if (currentSectionId) {
+        setActiveLink(currentSectionId);
+      } else {
+        // If no section is in view (e.g. at the very top or bottom), determine based on position
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+             setActiveLink('contact'); // Last section
+        } else if (window.scrollY < 200) {
+             setActiveLink('home');
         }
       }
-      if (currentSection) {
-        setActiveLink(currentSection);
-      }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
     { href: '#home', label: 'HOME' },
     { href: '#about', label: 'ABOUT' },
     { href: '#skills', label: 'SKILLS' },
-    { href: '#portfolio', label: 'PORTFOLIO' },
+    { href: '#projects', label: 'PORTFOLIO' },
     { href: '#testimonials', label: 'TESTIMONIALS' },
     { href: '#contact', label: 'CONTACT' },
   ];
@@ -304,12 +306,17 @@ export default function HomePage() {
                 key={href}
                 href={href}
                 onClick={(e) => {
-                  e.preventDefault();
-                  setActiveLink(href.substring(1));
-                  const section = document.querySelector(href);
-                  if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                  }
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        setActiveLink(href.substring(1));
+                        const section = document.querySelector(href);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    } else {
+                        // For external links or other pages
+                        setActiveLink(href.substring(1));
+                    }
                 }}
                 className={`transition-colors hover:text-primary/80 ${
                   activeLink === href.substring(1)
