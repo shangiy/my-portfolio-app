@@ -269,7 +269,7 @@ export default function HomePage() {
             className="flex items-center space-x-2"
             aria-label="Home"
           >
-            <span className="font-headline text-2xl font-bold text-transparent bg-clip-text text-stroke">Coder</span>
+            <span className="font-headline text-2xl font-bold logo-wipe">Coder</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium mx-auto">
             {navLinks.map(({ href, label }) => (
