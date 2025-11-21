@@ -42,7 +42,7 @@ The backend is powered by Node.js and connects to a PostgreSQL database, ensurin
   {
     id: "project-2",
     slug: "banking-mobile-app",
-    title: "Banking Mobile-App",
+    title: "Mobile Banking-app",
     description: "A collaborative tool for teams to organize tasks, set deadlines, and track progress with an intuitive drag-and-drop interface.",
     longDescription: `
 The Banking Mobile App is a concept project designed to provide a seamless and secure mobile banking experience. The UI is built with React and styled with Tailwind CSS, with smooth animations powered by Framer Motion to enhance user interaction.
