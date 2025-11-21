@@ -20,7 +20,7 @@ const Footer = () => {
     return (
       <footer className="bg-card text-card-foreground">
         <div className="container py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="space-y-4">
               <h3 className="text-xl font-bold font-headline">About Me</h3>
               <p className="text-muted-foreground">
@@ -49,30 +49,6 @@ const Footer = () => {
                 <li><Link href="#" className="text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
                 <li><Link href="#" className="text-muted-foreground hover:text-primary">Terms of Service</Link></li>
               </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold font-headline">Contact</h3>
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold">Location</h4>
-                    <p className="text-muted-foreground">Nairobi, Kenya</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold">Email</h4>
-                    <p className="text-muted-foreground">mushangip0@gmail.com</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold">Phone</h4>
-                    <p className="text-muted-foreground">+254 727 607824</p>
-                  </div>
-                </div>
             </div>
           </div>
           <div className="border-t border-border mt-8 pt-6 text-center text-muted-foreground text-sm">
@@ -443,5 +419,7 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
 
     
