@@ -22,7 +22,7 @@ export function TechCarousel() {
       className="w-full py-12 md:py-16 bg-center bg-cover bg-fixed"
       style={{backgroundImage: "url('/parrallax.png')"}}
     >
-        <div className="absolute inset-0 bg-background/80"></div>
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
         <div className="container relative">
             <div className="relative overflow-hidden w-full group">
             <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
