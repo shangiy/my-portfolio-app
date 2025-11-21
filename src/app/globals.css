@@ -72,45 +72,87 @@ body {
     @apply bg-background text-foreground;
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
-  .text-stroke {
-    -webkit-text-stroke: 1px hsl(var(--foreground));
+  
+  .logo-container {
+    animation: drift-in 1.5s ease-out forwards;
   }
 
   .logo-wipe {
     position: relative;
-    color: transparent;
-    -webkit-text-stroke: 1px hsl(var(--primary));
-    background-color: hsl(var(--background));
-    background-clip: text;
-    -webkit-background-clip: text;
+    color: hsl(var(--primary));
   }
-  .logo-wipe::after {
-    content: '';
+
+  .logo-wipe::before {
+    content: 'Coder';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: hsl(var(--background));
-    animation: wipe-animation 5s infinite;
-    transform-origin: left;
+    inset: 0;
+    color: hsl(var(--foreground));
+    -webkit-text-stroke: 1px hsl(var(--primary));
+    background-color: transparent;
+    background-image: conic-gradient(
+      from 90deg at 50% 50%,
+      hsl(var(--primary)) 0deg,
+      hsl(var(--primary)) 0deg,
+      transparent 0deg,
+      transparent 360deg
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: clock-wipe 5s infinite;
+    animation-delay: 2s;
   }
 }
 
-@keyframes wipe-animation {
-  0% {
-    transform: scaleX(1);
+
+@keyframes drift-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  45% {
-    transform: scaleX(1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes clock-wipe {
+  0% {
+    background-image: conic-gradient(
+      from 90deg at 50% 50%,
+      hsl(var(--primary)) 0deg,
+      hsl(var(--primary)) 0deg,
+      transparent 0deg,
+      transparent 360deg
+    );
   }
   50% {
-    transform: scaleX(0);
+    background-image: conic-gradient(
+      from 90deg at 50% 50%,
+      hsl(var(--primary)) 0deg,
+      hsl(var(--primary)) 360deg,
+      transparent 360deg,
+      transparent 360deg
+    );
   }
-  95% {
-    transform: scaleX(0);
+  50.01% {
+    background-image: conic-gradient(
+      from 90deg at 50% 50%,
+      transparent 0deg,
+      transparent 0deg,
+      hsl(var(--primary)) 0deg,
+      hsl(var(--primary)) 360deg
+    );
   }
   100% {
-    transform: scaleX(1);
+     background-image: conic-gradient(
+      from 90deg at 50% 50%,
+      transparent 0deg,
+      transparent 360deg,
+      hsl(var(--primary)) 360deg,
+      hsl(var(--primary)) 360deg
+    );
   }
 }

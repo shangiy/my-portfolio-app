@@ -266,7 +266,7 @@ export default function HomePage() {
         <div className="container flex h-16 items-center">
           <Link
             href="/"
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 logo-container"
             aria-label="Home"
           >
             <span className="font-headline text-2xl font-bold logo-wipe">Coder</span>
