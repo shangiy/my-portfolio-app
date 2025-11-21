@@ -84,7 +84,6 @@ export default function HomePage() {
     { href: '#home', label: 'HOME' },
     { href: '#about', label: 'ABOUT' },
     { href: '#skills', label: 'SKILLS' },
-    { href: '#experience', label: 'EXPERIENCE' },
     { href: '#portfolio', label: 'PORTFOLIO' },
     { href: '#testimonials', label: 'TESTIMONIALS' },
     { href: '#contact', label: 'CONTACT' },
@@ -299,73 +298,6 @@ export default function HomePage() {
                   <Badge>Vercel</Badge>
                   <Badge>Netlify</Badge>
                   <Badge>Figma</Badge>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="experience" className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Experience</h2>
-              <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
-                A timeline of my professional journey and accomplishments.
-              </p>
-            </div>
-            <div className="mt-12 relative">
-              <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-border"></div>
-              <div className="space-y-12">
-                <div className="relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
-                    <Briefcase className="w-5 h-5" />
-                  </div>
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    <div className="lg:col-start-2">
-                      <div className="p-6 rounded-lg bg-card">
-                        <h3 className="text-2xl font-bold">Fullstack Developer</h3>
-                        <p className="text-primary font-semibold">Webverse Digital</p>
-                        <p className="text-sm text-muted-foreground mb-4">April 2024 - Present</p>
-                        <p className="text-muted-foreground">
-                          Developed dynamic and scalable web applications using the MERN stack, handling both frontend and backend development. Collaborated with cross-functional teams to build responsive UI, implement RESTful APIs, and optimize application performance in an agile environment.
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          <Badge>HTML</Badge>
-                          <Badge>CSS</Badge>
-                          <Badge>JavaScript</Badge>
-                          <Badge>React JS</Badge>
-                          <Badge>TypeScript</Badge>
-                          <Badge>Node.js</Badge>
-                          <Badge>Tailwind CSS</Badge>
-                          <Badge>MongoDB</Badge>
-                          <Badge>Redux</Badge>
-                          <Badge>Next.js</Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
-                    <Star className="w-5 h-5" />
-                  </div>
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    <div className="lg:text-right">
-                       <div className="p-6 rounded-lg bg-card lg:text-right">
-                        <h3 className="text-2xl font-bold">Fullstack Engineer</h3>
-                        <p className="text-primary font-semibold">Agumentik Group of Companies</p>
-                        <p className="text-sm text-muted-foreground mb-4">July 2023 - March 2024</p>
-                        <p className="text-muted-foreground">
-                          Contributed to innovative projects as a Fullstack Engineer, leading both frontend and backend development using modern technologies.
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-2 justify-end">
-                          <Badge>React JS</Badge>
-                          <Badge>Node.js</Badge>
-                          <Badge>Express</Badge>
-                          <Badge>MongoDB</Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
