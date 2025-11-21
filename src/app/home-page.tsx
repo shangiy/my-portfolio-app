@@ -311,11 +311,11 @@ export default function HomePage() {
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-4">
                     <Avatar>
-                      <AvatarImage src="https://picsum.photos/48/48" alt="Michael Chen" data-ai-hint="man portrait" />
-                      <AvatarFallback>MC</AvatarFallback>
+                      <AvatarImage src="https://picsum.photos/48/48" alt="Richard Kimunyu" data-ai-hint="man portrait" />
+                      <AvatarFallback>RK</AvatarFallback>
                     </Avatar>
                     <div>
-                      <p className="font-bold">Michael Chen</p>
+                      <p className="font-bold">Richard Kimunyu</p>
                       <p className="text-sm text-primary">Product Manager, InnovateCo</p>
                     </div>
                   </div>
