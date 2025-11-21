@@ -351,40 +351,7 @@ export default function HomePage() {
                 Have a project in mind? Let's discuss how we can work together
               </p>
             </div>
-            <div className="mt-12 p-8 rounded-lg bg-card grid gap-12 lg:grid-cols-2 lg:gap-16">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold">Contact Information</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="h-6 w-6 text-primary mt-1" />
-                    <div>
-                      <h4 className="font-semibold">Location</h4>
-                      <p className="text-muted-foreground">Nairobi, Kenya</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Mail className="h-6 w-6 text-primary mt-1" />
-                    <div>
-                      <h4 className="font-semibold">Email</h4>
-                      <p className="text-muted-foreground">mushangip0@gmail.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="h-6 w-6 text-primary mt-1" />
-                    <div>
-                      <h4 className="font-semibold">Phone</h4>
-                      <p className="text-muted-foreground">+254 727 607824</p>
-                    </div>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold pt-4">Follow Me</h3>
-                <div className="flex items-center gap-4">
-                  <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
-                  <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
-                  <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
-                  <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
-                </div>
-              </div>
+            <div className="mt-12 p-8 rounded-lg bg-card grid gap-12 lg:grid-cols-1 lg:gap-16">
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold">Send Me a Message</h3>
                 <form className="space-y-4">
@@ -419,6 +386,8 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
 
     
 
