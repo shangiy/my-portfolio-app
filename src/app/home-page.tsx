@@ -8,7 +8,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Facebook, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Facebook, Linkedin, X, Instagram } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -112,7 +112,7 @@ const Footer = () => {
               <div className="flex items-center gap-4">
                   <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
                   <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
-                  <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
+                  <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary"><X /></Link>
                   <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
               </div>
             </div>
