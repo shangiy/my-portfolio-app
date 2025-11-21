@@ -36,7 +36,7 @@ The backend is powered by Node.js and connects to a PostgreSQL database, ensurin
       "/alpha-Admin-Dashboard.png",
     ],
     imageHints: ["ecommerce system", "ecommerce laptop", "admin dashboard"],
-    liveUrl: "https://6000-firebase-studio-1751840259148.cluster-jbb3mjctu5cbgsi6hwq6u4btwe.cloudworkstations.dev/",
+    liveUrl: "https://alpha-plumbing-n-electrical-ltd.onrender.com",
     githubUrl: "#",
   },
   {
@@ -140,4 +140,3 @@ This project was a great opportunity to work with server-side scripting and data
     githubUrl: "https://shangiy.github.io/p5/",
   },
 ];
-
