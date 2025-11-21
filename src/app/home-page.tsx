@@ -84,7 +84,7 @@ const Footer = () => {
   
 
 export default function HomePage() {
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState('about');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
 
   const words = ["Website Designer", "System Developer", "Web Developer", "Software Engineer"];
@@ -134,10 +134,9 @@ export default function HomePage() {
       if (currentSection) {
         setActiveLink(currentSection);
       } else {
-        // If no section is active (e.g., scrolled to top), default to home
-        const homeSection = sections.current['home'];
-        if (homeSection && window.scrollY < homeSection.offsetTop + homeSection.offsetHeight) {
-            setActiveLink('home');
+        const aboutSection = sections.current['about'];
+        if (aboutSection && window.scrollY < aboutSection.offsetTop + aboutSection.offsetHeight) {
+            setActiveLink('about');
         }
       }
     };
@@ -150,7 +149,6 @@ export default function HomePage() {
   }, []);
 
   const navLinks = [
-    { href: '#home', label: 'HOME' },
     { href: '#about', label: 'ABOUT' },
     { href: '#skills', label: 'SKILLS' },
     { href: '#portfolio', label: 'PORTFOLIO' },
@@ -198,50 +196,6 @@ export default function HomePage() {
         </div>
       </header>
       <main className="flex-1">
-        <section
-          id="home"
-          className="w-full py-24 md:py-32 lg:py-40"
-        >
-          <div className="container grid gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-24">
-            <div className="flex flex-col justify-center space-y-6">
-              <div className="space-y-4">
-                <p className="text-primary font-semibold">I'm Mushangi P</p>
-                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl min-h-[72px] sm:min-h-[80px] md:min-h-[96px] text-transparent bg-clip-text text-stroke">
-                  {text}
-                  <span className="animate-ping text-primary">|</span>
-                </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  I design and build stunning, user-friendly websites and applications using modern technologies. Together, we can transform your ideas into reality.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">Web Design</Badge>
-                  <Badge variant="secondary">Frontend Development</Badge>
-                  <Badge variant="secondary">UI/UX Design</Badge>
-              </div>
-              <div className="flex items-center gap-4">
-                <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary"><MessageCircle /></Link>
-                <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg">View My Work</Button>
-                <Button size="lg" variant="outline">Download CV</Button>
-              </div>
-            </div>
-            <div className="relative">
-              <Image
-                src="/HomeUI.png"
-                alt="Mushangi P"
-                width={600}
-                height={800}
-                className="rounded-xl object-cover"
-                data-ai-hint="man portrait"
-              />
-            </div>
-          </div>
-        </section>
         <section id="about" className="w-full py-24 md:py-32 bg-background">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
