@@ -203,7 +203,7 @@ const HeroSection = () => {
             <div className="container grid gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
                 <div className="flex flex-col justify-center space-y-6">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
-                        I'm Mushangi P<br />
+                        Mushangi's Portfolio<br />
                         <div className="h-[1.5em] overflow-hidden">
                             {animationState === 'carousel' ? (
                                 <div className="text-primary animate-[carousel-scroll_5s_ease-in-out_infinite] [text-wrap:nowrap] [color:transparent] [-webkit-text-stroke:2px_hsl(var(--primary))]">
@@ -384,3 +384,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
