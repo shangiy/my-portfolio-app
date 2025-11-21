@@ -8,7 +8,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Facebook, Linkedin, Twitter, MessageCircle, GitMerge, Database, Settings, Briefcase, Star, MapPin, Mail, Phone, Instagram, Clock, BriefcaseBusiness } from 'lucide-react';
+import { Facebook, Linkedin, Twitter, Instagram } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -408,12 +408,10 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        <TechCarousel />
+        <Footer />
       </main>
-      <TechCarousel />
-      <Footer />
       <ScrollToTopButton />
     </div>
   );
 }
-
-    
