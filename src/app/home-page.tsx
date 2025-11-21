@@ -234,8 +234,8 @@ const HeroSection = () => {
                     <Image
                         src="/hero-image.png"
                         alt="Hero Image"
-                        width={600}
-                        height={600}
+                        width={450}
+                        height={450}
                         className="rounded-full object-cover aspect-square"
                         data-ai-hint="portrait professional"
                     />
