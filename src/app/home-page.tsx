@@ -83,15 +83,17 @@ const ContactForm = () => {
                     </p>
                 </div>
                 <div className="mt-12 max-w-xl mx-auto">
-                    <form className="grid gap-6">
+                     <div className="grid gap-6">
                         <div className="grid sm:grid-cols-2 gap-6">
                             <Input placeholder="Your Name" />
                             <Input type="email" placeholder="Your Email" />
                         </div>
                         <Input placeholder="Subject" />
                         <Textarea placeholder="Your Message" rows={6} />
-                        <Button type="submit" size="lg">Send Message</Button>
-                    </form>
+                         <a href="mailto:mushangip0@gmail.com">
+                            <Button size="lg" className="w-full">Send Message</Button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -384,5 +386,7 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
 
     
