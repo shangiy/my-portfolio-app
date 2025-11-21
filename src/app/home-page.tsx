@@ -61,7 +61,7 @@ const Footer = () => {
   
 
 export default function HomePage() {
-  const [activeLink, setActiveLink] = useState('about');
+  const [activeLink, setActiveLink] = useState('home');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
 
   const words = ["Website Designer", "System Developer", "Web Developer", "Software Engineer"];
@@ -99,7 +99,7 @@ export default function HomePage() {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
-      let currentSection = '';
+      let currentSection = 'home';
 
       for (const sectionId in sections.current) {
         const section = sections.current[sectionId];
@@ -110,11 +110,6 @@ export default function HomePage() {
       }
       if (currentSection) {
         setActiveLink(currentSection);
-      } else {
-        const aboutSection = sections.current['about'];
-        if (aboutSection && window.scrollY < aboutSection.offsetTop + aboutSection.offsetHeight) {
-            setActiveLink('about');
-        }
       }
     };
 
@@ -126,6 +121,7 @@ export default function HomePage() {
   }, []);
 
   const navLinks = [
+    { href: '#home', label: 'HOME' },
     { href: '#about', label: 'ABOUT' },
     { href: '#skills', label: 'SKILLS' },
     { href: '#portfolio', label: 'PORTFOLIO' },
@@ -173,6 +169,38 @@ export default function HomePage() {
         </div>
       </header>
       <main className="flex-1">
+        <section id="home" className="w-full py-24 md:py-32 lg:py-40">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                    I'm Mushangi P<br />
+                    <span className="text-primary">{text}|</span>
+                  </h1>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                    I design and build stunning, user-friendly websites and applications using modern technologies. Together, we can transform your ideas into reality.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Button asChild size="lg">
+                    <Link href="#portfolio">View My Work</Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg">
+                    <Link href="#">Download CV</Link>
+                  </Button>
+                </div>
+              </div>
+              <Image
+                src="/HomeUI.png"
+                width="600"
+                height="600"
+                alt="Hero"
+                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
+              />
+            </div>
+          </div>
+        </section>
         <section id="about" className="w-full py-24 md:py-32 bg-background">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
@@ -386,9 +414,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
-
-    
-
-    
