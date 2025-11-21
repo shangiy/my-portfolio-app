@@ -206,12 +206,12 @@ const HeroSection = () => {
                         I'm Mushangi P<br />
                         <div className="h-[1.5em] overflow-hidden">
                             {animationState === 'carousel' ? (
-                                <div className="text-[#386a43] animate-[carousel-scroll_5s_ease-in-out_infinite]">
+                                <div className="text-primary animate-[carousel-scroll_5s_ease-in-out_infinite] [text-wrap:nowrap] [-webkit-text-stroke:1px_hsl(var(--primary))] [text-fill-color:transparent]">
                                     {roles.map(role => <div key={role} className="h-[1.5em]">{role}</div>)}
                                     <div className="h-[1.5em]">{roles[0]}</div>
                                 </div>
                             ) : (
-                                <span className="text-[#386a43] font-headline">
+                                <span className="text-primary font-headline [-webkit-text-stroke:1px_hsl(var(--primary))] [text-fill-color:transparent]">
                                     {displayedRole}
                                     <span className="border-r-2 typewriter-cursor"></span>
                                 </span>
