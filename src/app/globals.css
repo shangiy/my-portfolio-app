@@ -86,7 +86,7 @@ body {
     content: 'Coder';
     position: absolute;
     inset: 0;
-    color: hsl(var(--foreground));
+    color: transparent;
     -webkit-text-stroke: 1px hsl(var(--primary));
     background-color: transparent;
     background-image: conic-gradient(
