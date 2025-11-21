@@ -181,7 +181,7 @@ export default function HomePage() {
                 Get to know more about my background and experience
               </p>
             </div>
-            <div className="mt-12 p-8 rounded-lg bg-card grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="mt-12 p-8 rounded-lg bg-card grid gap-12 lg:gap-16">
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold">Who I Am</h3>
                 <p className="text-muted-foreground">
@@ -206,32 +206,6 @@ export default function HomePage() {
                   <div>
                     <p className="font-semibold">Availability:</p>
                     <p className="text-muted-foreground">Freelance / Full-time</p>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-8">
-                <h3 className="text-2xl font-bold">My Experience</h3>
-                <div className="space-y-6">
-                  <div className="flex justify-between items-start p-4 rounded-lg bg-background">
-                    <div>
-                      <h4 className="font-bold">Senior Web Developer</h4>
-                      <p className="text-sm text-primary">Tech Solutions Inc.</p>
-                    </div>
-                    <Badge variant="secondary">2020 - Present</Badge>
-                  </div>
-                  <div className="flex justify-between items-start p-4 rounded-lg bg-background">
-                    <div>
-                      <h4 className="font-bold">UI/UX Designer</h4>
-                      <p className="text-sm text-primary">Creative Studio</p>
-                    </div>
-                    <Badge variant="secondary">2018 - 2020</Badge>
-                  </div>
-                  <div className="flex justify-between items-start p-4 rounded-lg bg-background">
-                    <div>
-                      <h4 className="font-bold">Frontend Developer</h4>
-                      <p className="text-sm text-primary">Web Agency</p>
-                    </div>
-                    <Badge variant="secondary">2016 - 2018</Badge>
                   </div>
                 </div>
               </div>
