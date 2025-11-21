@@ -14,6 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ScrollToTopButton } from '@/components/ui/scrollToTopButton';
 import { Projects } from '@/components/projects';
+import { TechCarousel } from '@/components/tech-carousel';
 
 const Footer = () => {
     return (
@@ -436,8 +437,11 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+      <TechCarousel />
       <Footer />
       <ScrollToTopButton />
     </div>
   );
 }
+
+    
