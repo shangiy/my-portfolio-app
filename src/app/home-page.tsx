@@ -232,7 +232,7 @@ const HeroSection = () => {
                 </div>
                 <div className="hidden lg:flex items-center justify-center">
                     <Image
-                        src="https://picsum.photos/seed/hero/600/600"
+                        src="/hero-image.png"
                         alt="Hero Image"
                         width={600}
                         height={600}
