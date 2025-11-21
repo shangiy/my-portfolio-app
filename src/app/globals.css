@@ -15,19 +15,19 @@ body {
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 168 76% 42%;
+    --primary: 180 100% 25%;
     --primary-foreground: 180 25% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 210 40% 9%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 180 30% 12%;
+    --accent: 120 73% 95%;
     --accent-foreground: 180 25% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 168 76% 42%;
+    --ring: 180 100% 25%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -37,25 +37,25 @@ body {
   }
 
   .dark {
-    --background: 180 30% 8%;
+    --background: 180 30% 5%;
     --foreground: 180 25% 98%;
     --card: 180 30% 12%;
     --card-foreground: 180 25% 98%;
     --popover: 180 30% 8%;
     --popover-foreground: 180 25% 98%;
-    --primary: 168 76% 42%;
+    --primary: 180 80% 60%;
     --primary-foreground: 180 25% 98%;
     --secondary: 180 30% 15%;
     --secondary-foreground: 180 25% 98%;
     --muted: 180 30% 15%;
     --muted-foreground: 180 25% 60%;
-    --accent: 180 30% 12%;
-    --accent-foreground: 180 25% 98%;
+    --accent: 120 40% 80%;
+    --accent-foreground: 180 30% 8%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 180 30% 15%;
     --input: 180 30% 15%;
-    --ring: 168 76% 42%;
+    --ring: 180 80% 60%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -155,4 +155,22 @@ body {
       hsl(var(--primary)) 360deg
     );
   }
+}
+
+@keyframes carousel-scroll {
+  0%, 15% { transform: translateY(0); }
+  20%, 35% { transform: translateY(-1.5em); }
+  40%, 55% { transform: translateY(-3em); }
+  60%, 75% { transform: translateY(-4.5em); }
+  80%, 95% { transform: translateY(-6em); }
+  100% { transform: translateY(-7.5em); }
+}
+
+@keyframes blink-cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: #386a43; }
+}
+
+.typewriter-cursor {
+  animation: blink-cursor .75s step-end infinite;
 }

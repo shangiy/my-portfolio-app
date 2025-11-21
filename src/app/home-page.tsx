@@ -144,41 +144,51 @@ const Footer = () => {
 
 const HeroSection = () => {
     const roles = ['Web Developer', 'Website Designer', 'System Developer'];
-    const [currentRole, setCurrentRole] = useState(roles[0]);
+    const [animationState, setAnimationState] = useState('carousel');
     const [displayedRole, setDisplayedRole] = useState('');
-    const [isDeleting, setIsDeleting] = useState(false);
     const [roleIndex, setRoleIndex] = useState(0);
 
     useEffect(() => {
-        const typeSpeed = 150;
-        const deleteSpeed = 100;
-        const delay = 2000;
+        if (animationState === 'carousel') {
+            const timer = setTimeout(() => {
+                setAnimationState('typing');
+            }, 5000); // Duration of carousel animation
+            return () => clearTimeout(timer);
+        } else if (animationState === 'typing') {
+            const currentRole = roles[roleIndex];
+            const typeSpeed = 150;
+            const deleteSpeed = 100;
+            const delayBeforeDelete = 2000;
 
-        const handleTyping = () => {
-            if (isDeleting) {
-                if (displayedRole.length > 0) {
-                    setDisplayedRole(prev => prev.substring(0, prev.length - 1));
-                } else {
-                    setIsDeleting(false);
-                    setRoleIndex(prev => (prev + 1) % roles.length);
-                }
-            } else {
+            const handleTyping = () => {
                 if (displayedRole.length < currentRole.length) {
-                    setDisplayedRole(prev => currentRole.substring(0, prev.length + 1));
+                    setDisplayedRole(currentRole.substring(0, displayedRole.length + 1));
                 } else {
-                    setTimeout(() => setIsDeleting(true), delay);
+                    setTimeout(() => {
+                        const handleDeleting = () => {
+                            if (displayedRole.length > 0) {
+                                setDisplayedRole(prev => prev.substring(0, prev.length - 1));
+                                setTimeout(handleDeleting, deleteSpeed);
+                            } else {
+                                const nextRoleIndex = (roleIndex + 1) % roles.length;
+                                setRoleIndex(nextRoleIndex);
+                                if (nextRoleIndex === 0) {
+                                    setAnimationState('carousel');
+                                } else {
+                                    // Stay in typing mode for the next role
+                                    setAnimationState('typing');
+                                }
+                            }
+                        };
+                        handleDeleting();
+                    }, delayBeforeDelete);
                 }
-            }
-        };
+            };
 
-        const typingTimeout = setTimeout(handleTyping, isDeleting ? deleteSpeed : typeSpeed);
-
-        return () => clearTimeout(typingTimeout);
-    }, [displayedRole, isDeleting, currentRole, roles]);
-
-    useEffect(() => {
-        setCurrentRole(roles[roleIndex]);
-    }, [roleIndex, roles]);
+            const typingTimeout = setTimeout(handleTyping, typeSpeed);
+            return () => clearTimeout(typingTimeout);
+        }
+    }, [animationState, displayedRole, roleIndex, roles]);
 
     return (
         <section id="home" className="w-full py-24 md:py-32 lg:py-40">
@@ -186,10 +196,19 @@ const HeroSection = () => {
                 <div className="flex flex-col justify-center space-y-6">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
                         I'm Mushangi P<br />
-                        <span className="text-primary h-20 md:h-24">
-                            {displayedRole}
-                            <span className="animate-ping">|</span>
-                        </span>
+                        <div className="h-[1.5em] overflow-hidden">
+                            {animationState === 'carousel' ? (
+                                <div className="text-[#386a43] animate-[carousel-scroll_5s_ease-in-out_infinite]">
+                                    {roles.map(role => <div key={role} className="h-[1.5em]">{role}</div>)}
+                                    <div className="h-[1.5em]">{roles[0]}</div>
+                                </div>
+                            ) : (
+                                <span className="text-[#386a43] font-headline">
+                                    {displayedRole}
+                                    <span className="border-r-2 typewriter-cursor"></span>
+                                </span>
+                            )}
+                        </div>
                     </h1>
                     <p className="max-w-[600px] text-muted-foreground md:text-xl">
                         I design and build stunning, user-friendly websites and applications using modern technologies. Together, we can transform your ideas into reality.
