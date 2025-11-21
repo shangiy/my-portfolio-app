@@ -73,7 +73,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
 export function Projects() {
     const duplicatedProjects = [...projects, ...projects];
     return (
-        <section id="projects">
+        <section id="projects" className="pb-24 md:pb-32">
         <div className="flex flex-col items-center text-center gap-4 mb-12">
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             My Portfolio
