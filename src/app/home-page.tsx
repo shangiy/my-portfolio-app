@@ -171,7 +171,7 @@ export default function HomePage() {
       <main className="flex-1">
         <section id="home" className="w-full py-24 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-1">
+            <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -191,6 +191,14 @@ export default function HomePage() {
                   </Button>
                 </div>
               </div>
+              <Image
+                src="https://picsum.photos/seed/hero/600/600"
+                alt="Hero"
+                width={600}
+                height={600}
+                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover"
+                data-ai-hint="abstract digital art"
+              />
             </div>
           </div>
         </section>
