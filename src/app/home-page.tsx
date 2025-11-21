@@ -147,48 +147,56 @@ const HeroSection = () => {
     const [animationState, setAnimationState] = useState('carousel');
     const [displayedRole, setDisplayedRole] = useState('');
     const [roleIndex, setRoleIndex] = useState(0);
-
+    const [isDeleting, setIsDeleting] = useState(false);
+    
     useEffect(() => {
+        let timer;
         if (animationState === 'carousel') {
-            const timer = setTimeout(() => {
+            timer = setTimeout(() => {
                 setAnimationState('typing');
+                setRoleIndex(0);
+                setIsDeleting(false);
+                setDisplayedRole('');
             }, 5000); // Duration of carousel animation
-            return () => clearTimeout(timer);
         } else if (animationState === 'typing') {
             const currentRole = roles[roleIndex];
             const typeSpeed = 150;
             const deleteSpeed = 100;
             const delayBeforeDelete = 2000;
 
-            const handleTyping = () => {
-                if (displayedRole.length < currentRole.length) {
-                    setDisplayedRole(currentRole.substring(0, displayedRole.length + 1));
+            if (isDeleting) {
+                // Handle deleting
+                if (displayedRole.length > 0) {
+                    timer = setTimeout(() => {
+                        setDisplayedRole(currentRole.substring(0, displayedRole.length - 1));
+                    }, deleteSpeed);
                 } else {
-                    setTimeout(() => {
-                        const handleDeleting = () => {
-                            if (displayedRole.length > 0) {
-                                setDisplayedRole(prev => prev.substring(0, prev.length - 1));
-                                setTimeout(handleDeleting, deleteSpeed);
-                            } else {
-                                const nextRoleIndex = (roleIndex + 1) % roles.length;
-                                setRoleIndex(nextRoleIndex);
-                                if (nextRoleIndex === 0) {
-                                    setAnimationState('carousel');
-                                } else {
-                                    // Stay in typing mode for the next role
-                                    setAnimationState('typing');
-                                }
-                            }
-                        };
-                        handleDeleting();
+                    setIsDeleting(false);
+                    const nextRoleIndex = roleIndex + 1;
+                    if (nextRoleIndex === roles.length) {
+                        setAnimationState('carousel'); // Go back to carousel
+                    } else {
+                        setRoleIndex(nextRoleIndex); // Go to next role
+                    }
+                }
+            } else {
+                // Handle typing
+                if (displayedRole.length < currentRole.length) {
+                    timer = setTimeout(() => {
+                        setDisplayedRole(currentRole.substring(0, displayedRole.length + 1));
+                    }, typeSpeed);
+                } else {
+                    // Finished typing, wait then start deleting
+                    timer = setTimeout(() => {
+                        setIsDeleting(true);
                     }, delayBeforeDelete);
                 }
-            };
-
-            const typingTimeout = setTimeout(handleTyping, typeSpeed);
-            return () => clearTimeout(typingTimeout);
+            }
         }
-    }, [animationState, displayedRole, roleIndex, roles]);
+
+        return () => clearTimeout(timer);
+    }, [animationState, displayedRole, roleIndex, roles, isDeleting]);
+
 
     return (
         <section id="home" className="w-full py-24 md:py-32 lg:py-40">
