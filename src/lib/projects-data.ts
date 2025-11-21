@@ -61,6 +61,26 @@ Firebase is used for the backend, providing real-time database capabilities and 
     liveUrl: "#",
     githubUrl: "#",
   },
+    {
+    id: "project-3",
+    slug: "shape-color-generator",
+    title: "Shape GEN and color painter web",
+    description: "A web application for generating shapes and painting with colors using a canvas.",
+    longDescription: `
+This is a fun, interactive web application that allows users to unleash their creativity. Built with plain HTML5, JavaScript, and the Canvas API, this project demonstrates the power of browser-native technologies.
+
+Users can:
+- **Generate Shapes:** Create various geometric shapes with random sizes and colors.
+- **Paint Freely:** Use a color picker and brush tools to paint directly on the canvas.
+
+It's a simple yet powerful demonstration of what can be achieved with fundamental web technologies and provides a great sandbox for creative expression.
+    `,
+    tags: ["HTML5", "Canvas", "JavaScript"],
+    imageUrls: ["https://picsum.photos/seed/3/600/400"],
+    imageHints: ["data dashboard"],
+    liveUrl: "https://shangiy.github.io/colourGen.0/",
+    githubUrl: "#",
+  },
   {
     id: "project-4",
     slug: "game-app",
@@ -83,42 +103,6 @@ This project was a great exercise in managing real-time data synchronization and
     githubUrl: "#",
   },
   {
-    id: "project-6",
-    slug: "clients-portfolio",
-    title: "Clients Portfolio",
-    description: "A beautiful and responsive portfolio website built for a client to showcase their work and skills.",
-    longDescription: `
-This project involved creating a clean, modern, and fully responsive portfolio website for a client. The site was built using Next.js for its performance benefits and server-side rendering capabilities. React and Tailwind CSS were used to create a custom, visually appealing design that adapts perfectly to any screen size.
-
-The goal was to create a digital space that effectively showcases the client's skills, projects, and professional background. The final product is a fast, elegant, and easy-to-navigate website that serves as a powerful tool for the client's personal branding.
-    `,
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    imageUrls: ["/wanjikuHome.png","/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
-    imageHints: ["client portfolio", "blog section", "art curator", "footer design"],
-    liveUrl: "https://wanjiku-s-portfolio.onrender.com/",
-    githubUrl: "#",
-  },
-    {
-    id: "project-3",
-    slug: "shape-color-generator",
-    title: "Shape GEN and color painter web",
-    description: "A web application for generating shapes and painting with colors using a canvas.",
-    longDescription: `
-This is a fun, interactive web application that allows users to unleash their creativity. Built with plain HTML5, JavaScript, and the Canvas API, this project demonstrates the power of browser-native technologies.
-
-Users can:
-- **Generate Shapes:** Create various geometric shapes with random sizes and colors.
-- **Paint Freely:** Use a color picker and brush tools to paint directly on the canvas.
-
-It's a simple yet powerful demonstration of what can be achieved with fundamental web technologies and provides a great sandbox for creative expression.
-    `,
-    tags: ["HTML5", "Canvas", "JavaScript"],
-    imageUrls: ["https://picsum.photos/seed/3/600/400"],
-    imageHints: ["data dashboard"],
-    liveUrl: "https://shangiy.github.io/colourGen.0/",
-    githubUrl: "#",
-  },
-  {
     id: "project-5",
     slug: "parms-xclusive-cars",
     title: "Parms Xclusive Cars Ltd System",
@@ -138,5 +122,21 @@ This project was a great opportunity to work with server-side scripting and data
     imageHints: ["car trade-in", "car landing", "car website"],
     liveUrl: "https://shangiy.github.io/p5/",
     githubUrl: "https://shangiy.github.io/p5/",
+  },
+  {
+    id: "project-6",
+    slug: "clients-portfolio",
+    title: "Clients Portfolio",
+    description: "A beautiful and responsive portfolio website built for a client to showcase their work and skills.",
+    longDescription: `
+This project involved creating a clean, modern, and fully responsive portfolio website for a client. The site was built using Next.js for its performance benefits and server-side rendering capabilities. React and Tailwind CSS were used to create a custom, visually appealing design that adapts perfectly to any screen size.
+
+The goal was to create a digital space that effectively showcases the client's skills, projects, and professional background. The final product is a fast, elegant, and easy-to-navigate website that serves as a powerful tool for the client's personal branding.
+    `,
+    tags: ["Next.js", "React", "Tailwind CSS"],
+    imageUrls: ["/wanjikuHome.png","/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
+    imageHints: ["client portfolio", "blog section", "art curator", "footer design"],
+    liveUrl: "https://wanjiku-s-portfolio.onrender.com/",
+    githubUrl: "#",
   },
 ];
