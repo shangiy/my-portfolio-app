@@ -64,7 +64,7 @@ export default function HomePage() {
   const [activeLink, setActiveLink] = useState('home');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
 
-  const words = ["Website Designer", "System Developer", "Web Developer", "Software Engineer"];
+  const words = ["WEB DEV", "WEBSITE DESIGNER", "SYSTEM DEVELOPER"];
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -407,3 +407,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
