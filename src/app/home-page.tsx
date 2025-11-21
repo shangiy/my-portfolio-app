@@ -144,7 +144,7 @@ const Footer = () => {
     );
   };
 
-const HeroSection = () => {
+const HeroSection = ({ scrollToProjects }: { scrollToProjects: () => void }) => {
     const roles = ['Web Developer', 'Website Designer', 'System Developer'];
     const [animationState, setAnimationState] = useState('carousel');
     const [displayedRole, setDisplayedRole] = useState('');
@@ -224,8 +224,8 @@ const HeroSection = () => {
                         I design and build stunning, user-friendly websites and applications using modern technologies. Together, we can transform your ideas into reality.
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row">
-                        <Button asChild size="lg">
-                            <Link href="/portfolio">View My Work</Link>
+                        <Button asChild size="lg" onClick={scrollToProjects}>
+                            <Link href="#projects">View My Work</Link>
                         </Button>
                         <Button variant="outline" size="lg">
                             Download CV
@@ -250,6 +250,13 @@ const HeroSection = () => {
 export default function HomePage() {
   const [activeLink, setActiveLink] = useState('home');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
+
+  const handleScrollTo = (id: string) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -311,10 +318,7 @@ export default function HomePage() {
                     if (href.startsWith('#')) {
                         e.preventDefault();
                         setActiveLink(href.substring(1));
-                        const section = document.querySelector(href);
-                        if (section) {
-                            section.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        handleScrollTo(href);
                     } else {
                         // For external links or other pages
                         setActiveLink(href.substring(1));
@@ -336,7 +340,7 @@ export default function HomePage() {
         </div>
       </header>
       <main className="flex-1">
-        <HeroSection />
+        <HeroSection scrollToProjects={() => handleScrollTo('#projects')} />
         <section id="about" className="w-full pt-24 md:pt-32 bg-background">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
