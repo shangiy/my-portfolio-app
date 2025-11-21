@@ -92,6 +92,11 @@ export function Projects() {
                 ))}
             </div>
         </div>
+        <div className="mt-12 text-center">
+            <Button asChild size="lg" className="rounded-full">
+                <Link href="/portfolio">View All Projects</Link>
+            </Button>
+        </div>
         </section>
     );
 }
