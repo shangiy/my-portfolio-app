@@ -19,7 +19,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Alegreya', 'serif'],
-        headline: ['Poppins', 'sans-serif'],
+        headline: ['Belleza', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -100,3 +100,4 @@ export default {
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
+
