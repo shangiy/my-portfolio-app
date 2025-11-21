@@ -18,23 +18,25 @@ export function TechCarousel() {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="w-full py-12 md:py-16 bg-card">
-      <div className="container">
-        <div className="relative overflow-hidden w-full group">
-          <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
-            {duplicatedLogos.map((logo, index) => (
-              <div key={index} className="px-8 flex-shrink-0 flex items-center justify-center gap-4">
-                <div className="flex items-center justify-center w-12 h-12">
-                    {logo.svg}
+    <section 
+      className="w-full py-12 md:py-16 bg-center bg-cover bg-fixed"
+      style={{backgroundImage: "url('/parrallax.png')"}}
+    >
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+        <div className="container relative">
+            <div className="relative overflow-hidden w-full group">
+            <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
+                {duplicatedLogos.map((logo, index) => (
+                <div key={index} className="px-8 flex-shrink-0 flex items-center justify-center gap-4">
+                    <div className="flex items-center justify-center w-12 h-12">
+                        {logo.svg}
+                    </div>
+                    <span className="text-lg font-semibold text-foreground">{logo.name}</span>
                 </div>
-                <span className="text-lg font-semibold text-muted-foreground">{logo.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+                ))}
+            </div>
+            </div>
       </div>
     </section>
   );
 }
-
-    
