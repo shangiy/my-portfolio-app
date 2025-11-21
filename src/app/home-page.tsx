@@ -195,7 +195,7 @@ const HeroSection = () => {
         }
 
         return () => clearTimeout(timer);
-    }, [animationState, displayedRole, roleIndex, roles, isDeleting]);
+    }, [animationState, displayedRole, roleIndex, isDeleting]);
 
 
     return (
