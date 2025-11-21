@@ -23,7 +23,7 @@ export function TechCarousel() {
       className="w-full py-12 md:py-16 bg-center bg-cover bg-fixed"
       style={{backgroundImage: "url('/parrallax.png')"}}
     >
-        <div className="absolute inset-0 bg-background/80"></div>
+        
         <div className="container relative">
              <div className="flex flex-col items-center text-center gap-4 mb-12">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
