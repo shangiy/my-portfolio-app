@@ -19,11 +19,20 @@ export function TechCarousel() {
 
   return (
     <section 
+      id="skills"
       className="w-full py-12 md:py-16 bg-center bg-cover bg-fixed"
       style={{backgroundImage: "url('/parrallax.png')"}}
     >
-        <div className="absolute inset-0 bg-background"></div>
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
         <div className="container relative">
+             <div className="flex flex-col items-center text-center gap-4 mb-12">
+                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                My Skills
+                </h2>
+                <p className="max-w-[700px] text-muted-foreground md:text-lg">
+                Technologies I use to build amazing products
+                </p>
+            </div>
             <div className="relative overflow-hidden w-full group">
             <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
                 {duplicatedLogos.map((logo, index) => (
@@ -40,5 +49,3 @@ export function TechCarousel() {
     </section>
   );
 }
-
-    

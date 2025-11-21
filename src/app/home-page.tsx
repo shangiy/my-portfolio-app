@@ -16,6 +16,89 @@ import { ScrollToTopButton } from '@/components/ui/scrollToTopButton';
 import { Projects } from '@/components/projects';
 import { TechCarousel } from '@/components/tech-carousel';
 
+const Testimonials = () => {
+    const testimonials = [
+        {
+            name: 'Alex Johnson',
+            role: 'CEO, Tech Innovators',
+            avatar: 'https://picsum.photos/seed/avatar1/100/100',
+            testimonial: 'Working with this developer was a game-changer for our project. Their expertise in modern web technologies and commitment to quality is unparalleled. They delivered a product that exceeded our expectations.'
+        },
+        {
+            name: 'Samantha Lee',
+            role: 'Marketing Director, Creative Solutions',
+            avatar: 'https://picsum.photos/seed/avatar2/100/100',
+            testimonial: 'The new website is not only beautiful but also incredibly fast and user-friendly. We\'ve seen a significant increase in user engagement since the launch. Highly recommended for any web development needs.'
+        },
+        {
+            name: 'David Chen',
+            role: 'Startup Founder',
+            avatar: 'https://picsum.photos/seed/avatar3/100/100',
+            testimonial: 'As a startup, we needed a developer who could be flexible and deliver high-quality work on a tight schedule. They were professional, communicative, and delivered a fantastic product. I would definitely work with them again.'
+        }
+    ];
+
+    return (
+        <section id="testimonials" className="w-full py-24 md:py-32 bg-card">
+            <div className="container px-4 md:px-6">
+                <div className="text-center space-y-4">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">What My Clients Say</h2>
+                    <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                        Hear from some of the amazing people I've worked with.
+                    </p>
+                </div>
+                <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    {testimonials.map((testimonial, index) => (
+                        <Card key={index} className="bg-background/50">
+                            <CardContent className="pt-6">
+                                <p className="text-muted-foreground italic mb-4">"{testimonial.testimonial}"</p>
+                                <div className="flex items-center gap-4">
+                                    <Avatar>
+                                        <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                                    </Avatar>
+                                    <div>
+                                        <p className="font-semibold">{testimonial.name}</p>
+                                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+
+const ContactForm = () => {
+    return (
+        <section id="contact" className="w-full py-24 md:py-32">
+            <div className="container px-4 md:px-6">
+                <div className="text-center space-y-4">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get in Touch</h2>
+                    <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                        Have a project in mind or just want to say hi? I'd love to hear from you.
+                    </p>
+                </div>
+                <div className="mt-12 max-w-xl mx-auto">
+                    <form className="grid gap-6">
+                        <div className="grid sm:grid-cols-2 gap-6">
+                            <Input placeholder="Your Name" />
+                            <Input type="email" placeholder="Your Email" />
+                        </div>
+                        <Input placeholder="Subject" />
+                        <Textarea placeholder="Your Message" rows={6} />
+                        <Button type="submit" size="lg">Send Message</Button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+
 const Footer = () => {
     return (
       <footer className="bg-card text-card-foreground">
@@ -58,7 +141,82 @@ const Footer = () => {
       </footer>
     );
   };
-  
+
+const HeroSection = () => {
+    const roles = ['Web Developer', 'Website Designer', 'System Developer'];
+    const [currentRole, setCurrentRole] = useState(roles[0]);
+    const [displayedRole, setDisplayedRole] = useState('');
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [roleIndex, setRoleIndex] = useState(0);
+
+    useEffect(() => {
+        const typeSpeed = 150;
+        const deleteSpeed = 100;
+        const delay = 2000;
+
+        const handleTyping = () => {
+            if (isDeleting) {
+                if (displayedRole.length > 0) {
+                    setDisplayedRole(prev => prev.substring(0, prev.length - 1));
+                } else {
+                    setIsDeleting(false);
+                    setRoleIndex(prev => (prev + 1) % roles.length);
+                }
+            } else {
+                if (displayedRole.length < currentRole.length) {
+                    setDisplayedRole(prev => currentRole.substring(0, prev.length + 1));
+                } else {
+                    setTimeout(() => setIsDeleting(true), delay);
+                }
+            }
+        };
+
+        const typingTimeout = setTimeout(handleTyping, isDeleting ? deleteSpeed : typeSpeed);
+
+        return () => clearTimeout(typingTimeout);
+    }, [displayedRole, isDeleting, currentRole, roles]);
+
+    useEffect(() => {
+        setCurrentRole(roles[roleIndex]);
+    }, [roleIndex, roles]);
+
+    return (
+        <section id="home" className="w-full py-24 md:py-32 lg:py-40">
+            <div className="container grid gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
+                <div className="flex flex-col justify-center space-y-6">
+                    <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
+                        I'm Mushangi P<br />
+                        <span className="text-primary h-20 md:h-24">
+                            {displayedRole}
+                            <span className="animate-ping">|</span>
+                        </span>
+                    </h1>
+                    <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                        I design and build stunning, user-friendly websites and applications using modern technologies. Together, we can transform your ideas into reality.
+                    </p>
+                    <div className="flex flex-col gap-4 sm:flex-row">
+                        <Button asChild size="lg">
+                            <Link href="#portfolio">View My Work</Link>
+                        </Button>
+                        <Button asChild variant="outline" size="lg">
+                            <Link href="/cv.pdf" target="_blank">Download CV</Link>
+                        </Button>
+                    </div>
+                </div>
+                <div className="hidden lg:flex items-center justify-center">
+                    <Image
+                        src="https://picsum.photos/seed/hero/600/600"
+                        alt="Hero Image"
+                        width={600}
+                        height={600}
+                        className="rounded-full object-cover aspect-square"
+                        data-ai-hint="portrait professional"
+                    />
+                </div>
+            </div>
+        </section>
+    );
+};
 
 export default function HomePage() {
   const [activeLink, setActiveLink] = useState('home');
@@ -142,6 +300,7 @@ export default function HomePage() {
         </div>
       </header>
       <main className="flex-1">
+        <HeroSection />
         <section id="about" className="w-full pt-24 md:pt-32 bg-background">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
@@ -182,6 +341,9 @@ export default function HomePage() {
           </div>
         </section>
         <TechCarousel />
+        <Projects />
+        <Testimonials />
+        <ContactForm />
         <Footer />
       </main>
       <ScrollToTopButton />
