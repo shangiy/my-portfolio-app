@@ -225,8 +225,8 @@ const HeroSection = () => {
                         <Button asChild size="lg">
                             <Link href="/portfolio">View My Work</Link>
                         </Button>
-                        <Button asChild variant="outline" size="lg">
-                            <Link href="/cv.pdf" target="_blank">Download CV</Link>
+                        <Button variant="outline" size="lg">
+                            Download CV
                         </Button>
                     </div>
                 </div>
@@ -384,5 +384,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
