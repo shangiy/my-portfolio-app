@@ -367,7 +367,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="font-semibold">Availability:</p>
-                    <p className="text-muted-foreground">Freelance / Full-time</p>
+                    <p className="text-muted-foreground">available for any freelance job and full time dev</p>
                   </div>
                 </div>
               </div>
