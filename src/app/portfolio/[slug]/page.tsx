@@ -51,17 +51,24 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
             {project.imageUrls && project.imageUrls.length > 0 && (
                 <div className="space-y-4">
-                {project.imageUrls.map((url, index) => (
-                    <div key={index} className="aspect-video relative mb-4">
-                    <Image
-                        src={url}
-                        alt={`${project.title} - image ${index + 1}`}
-                        fill
-                        className="object-cover rounded-lg"
-                        data-ai-hint={project.imageHints[index] || ""}
-                    />
-                    </div>
-                ))}
+                    {project.imageUrls.map((url, index) => (
+                        <React.Fragment key={index}>
+                            <div className="aspect-video relative mb-4">
+                                <Image
+                                    src={url}
+                                    alt={`${project.title} - image ${index + 1}`}
+                                    fill
+                                    className="object-cover rounded-lg"
+                                    data-ai-hint={project.imageHints[index] || ""}
+                                />
+                            </div>
+                            {index === 0 && project.imageUrls.length > 1 && (
+                                <div className="prose prose-invert text-muted-foreground md:text-lg max-w-none">
+                                    <p>This is a new paragraph between the images. You can customize this text as needed.</p>
+                                </div>
+                            )}
+                        </React.Fragment>
+                    ))}
                 </div>
             )}
 
