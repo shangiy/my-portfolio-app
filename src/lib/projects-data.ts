@@ -147,13 +147,11 @@ The goal was to create a digital space that effectively showcases the client's s
     longDescription: `
 This project entry serves as a showcase for my journey into Artificial Intelligence. It represents my passion for exploring machine learning, neural networks, and generative AI.
 
-I am actively developing my skills in Python and frameworks like TensorFlow and PyTorch. This section will be updated with more concrete AI projects as I continue to learn and build.
-
-The image is a symbolic representation of the exciting and creative potential I see in AI.
+I am actively developing my skills in Python and frameworks like TensorFlow and PyTorch. This section will be updated with more concrete AI projects as I continue to learn and build. The images are a symbolic representation of my current skills and the exciting and creative potential I see in AI.
     `,
     tags: ["AI", "Machine Learning", "Python", "Conceptual"],
-    imageUrls: ["/AI enthusiast.png"],
-    imageHints: ["AI illustration"],
+    imageUrls: ["/AI enthusiast.png", "/folio skills.png"],
+    imageHints: ["AI illustration", "portfolio skills"],
     liveUrl: "#",
     githubUrl: "#",
   },
