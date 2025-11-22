@@ -46,6 +46,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
           
           <div className="space-y-8">
+            
+            <div className="prose prose-invert text-muted-foreground md:text-lg max-w-none" dangerouslySetInnerHTML={{ __html: project.longDescription.replace(/\n/g, '<br />') }} />
+
             {project.imageUrls && project.imageUrls.length > 0 && (
                 <div className="space-y-4">
                 {project.imageUrls.map((url, index) => (
@@ -61,8 +64,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 ))}
                 </div>
             )}
-            
-            <div className="prose prose-invert text-muted-foreground md:text-lg max-w-none" dangerouslySetInnerHTML={{ __html: project.longDescription.replace(/\n/g, '<br />') }} />
 
             <div className="space-y-4">
               <h3 className="text-2xl font-bold">Technologies Used</h3>
