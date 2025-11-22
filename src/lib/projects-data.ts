@@ -139,4 +139,22 @@ The goal was to create a digital space that effectively showcases the client's s
     liveUrl: "https://wanjiku-s-portfolio.onrender.com/",
     githubUrl: "#",
   },
+  {
+    id: "project-7",
+    slug: "ai-enthusiast",
+    title: "AI Enthusiast Showcase",
+    description: "A conceptual project to highlight my growing interest and skills in the field of Artificial Intelligence.",
+    longDescription: `
+This project entry serves as a showcase for my journey into Artificial Intelligence. It represents my passion for exploring machine learning, neural networks, and generative AI.
+
+I am actively developing my skills in Python and frameworks like TensorFlow and PyTorch. This section will be updated with more concrete AI projects as I continue to learn and build.
+
+The image is a symbolic representation of the exciting and creative potential I see in AI.
+    `,
+    tags: ["AI", "Machine Learning", "Python", "Conceptual"],
+    imageUrls: ["/AI enthusiast.png"],
+    imageHints: ["AI illustration"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
 ];
