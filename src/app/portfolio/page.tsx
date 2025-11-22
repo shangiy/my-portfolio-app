@@ -42,7 +42,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
     </CardHeader>
     <CardContent className="flex-grow flex flex-col">
         <CardDescription className="flex-grow">{project.description}
-            {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-5' || project.id === 'project-6') && project.liveUrl !== '#' && (
+            {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-4' || project.id === 'project-5' || project.id === 'project-6') && project.liveUrl !== '#' && (
             <p className="mt-2 text-sm break-all">
                 <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                     {project.liveUrl}
