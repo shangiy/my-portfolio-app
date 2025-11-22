@@ -65,7 +65,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                             </div>
                             {index === 0 && project.imageUrls.length > 1 && (
                                 <div className="prose prose-invert text-muted-foreground md:text-lg max-w-none">
-                                    <p>This is a new paragraph between the images. You can customize this text as needed.</p>
+                                    <p>started with a curiosity for how things work, which evolved into a love for creating meaningful digital experiences. I thrive on challenges, continuously learn new technologies,</p>
                                 </div>
                             )}
                         </React.Fragment>
