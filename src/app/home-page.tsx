@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import Image from 'next/image';
@@ -8,7 +9,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Facebook, Linkedin, X, Instagram } from 'lucide-react';
+import { Facebook, Linkedin, Instagram } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -112,10 +113,14 @@ const Footer = () => {
                 I design and build stunning, user-friendly websites and applications using modern technologies.
               </p>
               <div className="flex items-center gap-4">
-                  <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
-                  <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
-                  <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary"><X /></Link>
-                  <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
+                  <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram className="h-6 w-6" /></Link>
+                  <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook className="h-6 w-6" /></Link>
+                  <Link href="https://www.x.com/@patrickshangst1" className="text-muted-foreground hover:text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231L18.244 2.25zM17.633 19.602h1.867L7.126 4.126H5.162l12.471 15.476z"/>
+                    </svg>
+                  </Link>
+                  <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
               </div>
             </div>
             <div className="space-y-4">
@@ -394,3 +399,4 @@ export default function HomePage() {
     
 
     
+
