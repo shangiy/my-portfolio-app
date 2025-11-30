@@ -5,7 +5,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger as RadixCollapsibleTrigger } from '@/components/ui/collapsible';
+import { Dialog, DialogTrigger, DialogContent, DialogClose } from '@/components/ui/dialog';
 
 interface MobileNavProps extends React.PropsWithChildren {
   isOpen: boolean;
@@ -26,38 +26,45 @@ const useMobileNav = () => {
 };
 
 const MobileNavTrigger: React.FC = () => {
-  const { isOpen, onOpenChange } = useMobileNav();
   return (
-    <RadixCollapsibleTrigger asChild>
+    <DialogTrigger asChild>
       <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-transparent">
-        {isOpen ? <X className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <Menu className="h-6 w-6" />}
+        <Menu className="h-6 w-6" />
         <span className="sr-only">Toggle menu</span>
       </Button>
-    </RadixCollapsibleTrigger>
+    </DialogTrigger>
   );
 };
 MobileNavTrigger.displayName = 'MobileNavTrigger';
 
 
-const MobileNavCollapsibleContent: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const MobileNavSheetContent: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
-      <CollapsibleContent className="w-full bg-background border-b border-border/40 md:hidden">
-        {children}
-      </CollapsibleContent>
+      <DialogContent className="w-4/5 h-full p-6 bg-background/80 backdrop-blur-sm fixed top-0 right-0 m-0 border-l border-border/40 data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right">
+        <div className="h-full flex flex-col">
+            <DialogClose asChild>
+                 <Button variant="ghost" size="icon" className="self-end text-primary hover:bg-transparent -mr-2 -mt-2">
+                    <X className="h-6 w-6 text-primary" strokeWidth={2.5} />
+                    <span className="sr-only">Close menu</span>
+                </Button>
+            </DialogClose>
+            {children}
+        </div>
+      </DialogContent>
     );
 };
-MobileNavCollapsibleContent.displayName = 'MobileNavContent';
+MobileNavSheetContent.displayName = 'MobileNavContent';
 
 
 export function MobileNav({ children, isOpen, onOpenChange }: MobileNavProps) {
   return (
     <MobileNavContext.Provider value={{ isOpen, onOpenChange }}>
-      <Collapsible open={isOpen} onOpenChange={onOpenChange} className="w-full">
+      <Dialog open={isOpen} onOpenChange={onOpenChange}>
         {children}
-      </Collapsible>
+      </Dialog>
     </MobileNavContext.Provider>
   );
 }
 
 MobileNav.Trigger = MobileNavTrigger;
-MobileNav.Content = MobileNavCollapsibleContent;
+MobileNav.Content = MobileNavSheetContent;
