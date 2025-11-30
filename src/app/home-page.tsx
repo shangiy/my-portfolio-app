@@ -353,7 +353,7 @@ export default function HomePage() {
             </div>
           </div>
           <MobileNav.Content>
-            <div className="flex flex-col items-center justify-center h-full space-y-6 pt-4 pb-8">
+            <div className="container flex flex-col items-end justify-center h-full space-y-6 pt-4 pb-8">
               {navLinks.map(({ href, label }) => (
                 <Link
                   key={href}
