@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -39,15 +39,7 @@ export function MobileNav({ navLinks, isOpen, setIsOpen, handleScrollTo, setActi
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-4/5 bg-background/80 backdrop-blur-sm p-6">
-        <div className="flex justify-end mb-8">
-            <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                    <X className="h-6 w-6 text-primary" strokeWidth={2.5} />
-                    <span className="sr-only">Close menu</span>
-                </Button>
-            </SheetTrigger>
-        </div>
-        <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col items-center justify-center h-full space-y-6">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
