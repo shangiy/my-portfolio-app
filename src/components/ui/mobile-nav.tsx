@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -38,7 +38,7 @@ export function MobileNav({ navLinks, isOpen, setIsOpen, handleScrollTo, setActi
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-4/5 bg-background/80 backdrop-blur-sm p-6">
+      <SheetContent side="right" className="w-2/3 bg-background/80 backdrop-blur-sm p-6">
         <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
         <div className="flex flex-col items-center justify-center h-full space-y-6">
           {navLinks.map(({ href, label }) => (
