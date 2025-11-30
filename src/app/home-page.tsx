@@ -16,6 +16,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { ScrollToTopButton } from '@/components/ui/scrollToTopButton';
 import { Projects } from '@/components/projects';
 import { TechCarousel } from '@/components/tech-carousel';
+import { MobileNav } from '@/components/ui/mobile-nav';
 
 const Testimonials = () => {
     const testimonials = [
@@ -306,7 +307,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95">
-        <div className="container flex h-16 items-center">
+        <div className="container flex h-16 items-center justify-between">
           <Link
             href="/"
             className="flex items-center space-x-2 logo-container"
@@ -314,7 +315,7 @@ export default function HomePage() {
           >
             <span className="font-headline text-2xl font-bold logo-wipe">Coder</span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium mx-auto">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
@@ -339,8 +340,11 @@ export default function HomePage() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center justify-end">
+          <div className="hidden md:flex items-center justify-end">
             <Button>Hire Me</Button>
+          </div>
+          <div className="md:hidden">
+            <MobileNav navLinks={navLinks} handleScrollTo={handleScrollTo} setActiveLink={setActiveLink} />
           </div>
         </div>
       </header>
@@ -395,9 +399,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
-
-    
-
-
