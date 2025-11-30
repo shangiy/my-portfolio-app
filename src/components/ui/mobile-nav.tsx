@@ -1,10 +1,9 @@
 
-
 'use client';
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -35,7 +34,7 @@ export function MobileNav({ navLinks, isOpen, setIsOpen, handleScrollTo, setActi
           size="icon"
           className="md:hidden text-primary hover:bg-transparent"
         >
-          <Menu className="h-6 w-6" />
+          <Menu className="h-8 w-8" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
@@ -60,7 +59,7 @@ export function MobileNav({ navLinks, isOpen, setIsOpen, handleScrollTo, setActi
               {label}
             </Link>
           ))}
-          <Button size="default" className="w-full mt-6">
+          <Button size="lg" className="w-full mt-6">
             Hire Me
           </Button>
         </div>
