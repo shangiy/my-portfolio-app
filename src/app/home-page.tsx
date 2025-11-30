@@ -307,79 +307,79 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95">
-        <div className="container flex h-16 items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center space-x-2 logo-container"
-            aria-label="Home"
-          >
-            <span className="font-headline text-2xl font-bold logo-wipe">Coder</span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={(e) => {
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        setActiveLink(href.substring(1));
-                        handleScrollTo(href);
-                    } else {
-                        // For external links or other pages
-                        setActiveLink(href.substring(1));
-                    }
-                }}
-                className={`transition-colors hover:text-primary/80 ${
-                  activeLink === href.substring(1)
-                    ? 'text-primary'
-                    : 'text-foreground/60'
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-          <div className="hidden md:flex items-center justify-end">
-            <Button>Hire Me</Button>
-          </div>
-          <div className="md:hidden">
-            <MobileNav
-              isOpen={isMobileMenuOpen}
-              onOpenChange={setIsMobileMenuOpen}
+      <MobileNav
+        isOpen={isMobileMenuOpen}
+        onOpenChange={setIsMobileMenuOpen}
+      >
+        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95">
+          <div className="container flex h-16 items-center justify-between">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 logo-container"
+              aria-label="Home"
             >
-              <MobileNav.Trigger />
-              <MobileNav.Content>
-                <div className="mt-6 flex flex-col items-center justify-center space-y-6">
-                  {navLinks.map(({ href, label }) => (
-                    <Link
-                      key={href}
-                      href={href}
-                      onClick={(e) => {
-                        if (href.startsWith('#')) {
+              <span className="font-headline text-2xl font-bold logo-wipe">Coder</span>
+            </Link>
+            <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+              {navLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={(e) => {
+                      if (href.startsWith('#')) {
                           e.preventDefault();
                           setActiveLink(href.substring(1));
                           handleScrollTo(href);
-                        } else {
+                      } else {
+                          // For external links or other pages
                           setActiveLink(href.substring(1));
-                        }
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="text-2xl font-medium transition-colors hover:text-primary"
-                    >
-                      {label}
-                    </Link>
-                  ))}
-                  <Button className="w-full mt-6">
-                    Hire Me
-                  </Button>
-                </div>
-              </MobileNav.Content>
-            </MobileNav>
+                      }
+                  }}
+                  className={`transition-colors hover:text-primary/80 ${
+                    activeLink === href.substring(1)
+                      ? 'text-primary'
+                      : 'text-foreground/60'
+                  }`}
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+            <div className="hidden md:flex items-center justify-end">
+              <Button>Hire Me</Button>
+            </div>
+            <div className="md:hidden">
+              <MobileNav.Trigger />
+            </div>
           </div>
-        </div>
-      </header>
+          <MobileNav.Content>
+            <div className="mt-6 flex flex-col items-center justify-center space-y-6">
+              {navLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={(e) => {
+                    if (href.startsWith('#')) {
+                      e.preventDefault();
+                      setActiveLink(href.substring(1));
+                      handleScrollTo(href);
+                    } else {
+                      setActiveLink(href.substring(1));
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-2xl font-medium transition-colors hover:text-primary"
+                >
+                  {label}
+                </Link>
+              ))}
+              <Button className="w-full mt-6">
+                Hire Me
+              </Button>
+            </div>
+          </MobileNav.Content>
+        </header>
+      </MobileNav>
       <main className="flex-1">
         <HeroSection scrollToProjects={() => handleScrollTo('#projects')} />
         <section id="about" className="w-full pt-24 md:pt-32 bg-background">
