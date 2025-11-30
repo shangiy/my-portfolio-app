@@ -17,8 +17,6 @@ import { ScrollToTopButton } from '@/components/ui/scrollToTopButton';
 import { Projects } from '@/components/projects';
 import { TechCarousel } from '@/components/tech-carousel';
 import { MobileNav } from '@/components/ui/mobile-nav';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { Menu, X } from 'lucide-react';
 
 const Testimonials = () => {
     const testimonials = [
@@ -257,7 +255,6 @@ const HeroSection = ({ scrollToProjects }: { scrollToProjects: () => void }) => 
 
 export default function HomePage() {
   const [activeLink, setActiveLink] = useState('home');
-  const sections = useRef<{[key: string]: HTMLElement | null}>({});
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScrollTo = (id: string) => {
@@ -265,6 +262,7 @@ export default function HomePage() {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false); // Close menu on navigation
   };
 
   useEffect(() => {
@@ -283,9 +281,8 @@ export default function HomePage() {
       if (currentSectionId) {
         setActiveLink(currentSectionId);
       } else {
-        // If no section is in view (e.g. at the very top or bottom), determine based on position
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-             setActiveLink('contact'); // Last section
+             setActiveLink('contact');
         } else if (window.scrollY < 200) {
              setActiveLink('home');
         }
@@ -293,7 +290,7 @@ export default function HomePage() {
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -310,7 +307,6 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95">
-        <Collapsible open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen} className="md:hidden">
             <div className="container flex h-16 items-center justify-between">
                 <Link
                     href="/"
@@ -330,7 +326,6 @@ export default function HomePage() {
                                 setActiveLink(href.substring(1));
                                 handleScrollTo(href);
                             } else {
-                                // For external links or other pages
                                 setActiveLink(href.substring(1));
                             }
                         }}
@@ -348,40 +343,15 @@ export default function HomePage() {
                     <Button>Hire Me</Button>
                 </div>
                 <div className="md:hidden">
-                    <MobileNav
-                        navLinks={navLinks}
-                        handleScrollTo={handleScrollTo}
-                        setActiveLink={setActiveLink}
-                    />
+                  <MobileNav
+                    navLinks={navLinks}
+                    isOpen={isMobileMenuOpen}
+                    setIsOpen={setIsMobileMenuOpen}
+                    handleScrollTo={handleScrollTo}
+                    setActiveLink={setActiveLink}
+                  />
                 </div>
             </div>
-            <CollapsibleContent>
-                <div className="mt-6 flex flex-col items-end justify-center space-y-6 pr-4">
-                {navLinks.map(({ href, label }) => (
-                <Link
-                    key={href}
-                    href={href}
-                    onClick={(e) => {
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        setActiveLink(href.substring(1));
-                        handleScrollTo(href);
-                    } else {
-                        setActiveLink(href.substring(1));
-                    }
-                    setIsMobileMenuOpen(false);
-                    }}
-                    className="text-2xl font-medium transition-colors hover:text-primary"
-                >
-                    {label}
-                </Link>
-                ))}
-                <Button size="lg" className="w-full mt-6">
-                Hire Me
-                </Button>
-            </div>
-            </CollapsibleContent>
-        </Collapsible>
       </header>
 
       <main className="flex-1">
