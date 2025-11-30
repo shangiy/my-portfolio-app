@@ -142,7 +142,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="border-t border-border mt-8 pt-6 text-center text-muted-foreground text-sm">
-            <p>&copy; {new Date().getFullYear()} Mushangi P. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Mushangi Patrick. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -366,7 +366,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="font-semibold">Name:</p>
-                    <p className="text-muted-foreground">Mushangi P</p>
+                    <p className="text-muted-foreground">Mushangi Patrick</p>
                   </div>
                   <div>
                     <p className="font-semibold">Email:</p>
@@ -399,4 +399,5 @@ export default function HomePage() {
     
 
     
+
 
