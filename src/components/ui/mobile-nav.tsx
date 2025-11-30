@@ -1,64 +1,61 @@
 
+
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Menu, X } from 'lucide-react';
-
-interface NavLink {
-  href: string;
-  label: string;
-}
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface MobileNavProps {
-  navLinks: NavLink[];
-  handleScrollTo: (id: string) => void;
-  setActiveLink: (link: string) => void;
+  isOpen: boolean;
+  onOpenChange: (isOpen: boolean) => void;
+  children: React.ReactNode;
 }
 
-export function MobileNav({ navLinks, handleScrollTo, setActiveLink }: MobileNavProps) {
-  const [isOpen, setIsOpen] = useState(false);
+const MobileNavContext = React.createContext<{
+  isOpen: boolean;
+  onOpenChange: (isOpen: boolean) => void;
+} | null>(null);
 
-  const handleLinkClick = (href: string) => {
-    if (href.startsWith('#')) {
-      setActiveLink(href.substring(1));
-      handleScrollTo(href);
-    } else {
-      setActiveLink(href.substring(1));
-    }
-    setIsOpen(false);
-  };
+const useMobileNav = () => {
+  const context = React.useContext(MobileNavContext);
+  if (!context) {
+    throw new Error('useMobileNav must be used within a MobileNav provider');
+  }
+  return context;
+};
 
+const MobileNavTrigger: React.FC = () => {
+  const { isOpen, onOpenChange } = useMobileNav();
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-transparent">
-          {isOpen ? <X className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <Menu className="h-6 w-6" />}
-          <span className="sr-only">Toggle menu</span>
-        </Button>
-      </SheetTrigger>
-      <SheetContent side="right" className="w-full max-w-xs bg-background">
-        <nav className="flex flex-col items-center justify-center h-full space-y-6">
-          {navLinks.map(({ href, label }) => (
-            <SheetClose asChild key={href}>
-              <Link
-                href={href}
-                onClick={() => handleLinkClick(href)}
-                className="text-2xl font-medium transition-colors hover:text-primary"
-              >
-                {label}
-              </Link>
-            </SheetClose>
-          ))}
-          <SheetClose asChild>
-            <Button size="lg" className="w-full mt-6">
-              Hire Me
-            </Button>
-          </SheetClose>
-        </nav>
-      </SheetContent>
-    </Sheet>
+    <CollapsibleTrigger asChild>
+      <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-transparent" onClick={() => onOpenChange(!isOpen)}>
+        {isOpen ? <X className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <Menu className="h-6 w-6" />}
+        <span className="sr-only">Toggle menu</span>
+      </Button>
+    </CollapsibleTrigger>
+  );
+};
+
+const MobileNavCollapsibleContent: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <CollapsibleContent className="w-full bg-background border-b border-border/40 md:hidden">
+      {children}
+    </CollapsibleContent>
+  );
+};
+
+
+export function MobileNav({ isOpen, onOpenChange, children }: MobileNavProps) {
+  return (
+    <MobileNavContext.Provider value={{ isOpen, onOpenChange }}>
+      <Collapsible open={isOpen} onOpenChange={onOpenChange} className="w-full md:hidden">
+        <MobileNavTrigger />
+        {children}
+      </Collapsible>
+    </MobileNavContext.Provider>
   );
 }
+
+MobileNav.Content = MobileNavCollapsibleContent;

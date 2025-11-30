@@ -256,6 +256,7 @@ const HeroSection = ({ scrollToProjects }: { scrollToProjects: () => void }) => 
 export default function HomePage() {
   const [activeLink, setActiveLink] = useState('home');
   const sections = useRef<{[key: string]: HTMLElement | null}>({});
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScrollTo = (id: string) => {
     const section = document.querySelector(id);
@@ -344,7 +345,37 @@ export default function HomePage() {
             <Button>Hire Me</Button>
           </div>
           <div className="md:hidden">
-            <MobileNav navLinks={navLinks} handleScrollTo={handleScrollTo} setActiveLink={setActiveLink} />
+            <MobileNav
+              isOpen={isMobileMenuOpen}
+              onOpenChange={setIsMobileMenuOpen}
+            >
+              <MobileNav.Content>
+                <div className="flex flex-col items-center justify-center h-full space-y-6 pt-4 pb-8">
+                  {navLinks.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      onClick={(e) => {
+                        if (href.startsWith('#')) {
+                          e.preventDefault();
+                          setActiveLink(href.substring(1));
+                          handleScrollTo(href);
+                        } else {
+                          setActiveLink(href.substring(1));
+                        }
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="text-2xl font-medium transition-colors hover:text-primary"
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                  <Button size="lg" className="w-full mt-6">
+                    Hire Me
+                  </Button>
+                </div>
+              </MobileNav.Content>
+            </MobileNav>
           </div>
         </div>
       </header>
