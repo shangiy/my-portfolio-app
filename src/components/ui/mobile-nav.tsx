@@ -35,7 +35,7 @@ export function MobileNav({ navLinks, handleScrollTo, setActiveLink }: MobileNav
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-transparent">
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isOpen ? <X className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <Menu className="h-6 w-6" />}
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
